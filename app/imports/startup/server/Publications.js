@@ -24,7 +24,7 @@ Meteor.publish(Intents.adminPublicationName, function () {
 
 Meteor.publish(Survey.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Intents.collection.find();
+    return Survey.collection.find();
   }
   return this.ready();
 });

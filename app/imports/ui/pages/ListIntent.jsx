@@ -29,7 +29,7 @@ class ListIntent extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.intents.map((intent) => <Intent key={intent._id} intent={intent} />)}
+            {this.props.intents.map((intent, index) => <Intent key={index} intent={intent} />)}
           </Table.Body>
         </Table>
       </Container>
