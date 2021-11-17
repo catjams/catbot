@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Label, Icon, Header, Message } from 'semantic-ui-react';
+import { Helmet } from 'react-helmet';
 
 /** A simple static component to render some text for the landing page. */
 class Catbot extends React.Component {
@@ -12,12 +13,19 @@ class Catbot extends React.Component {
             <Header as='h4' textAlign='center'><Icon name='bullhorn'/>Welcome to OHA Catbot! Click on "Tutorial" in the navbar to view a quick guide on how to use this application.
               You can ask your questions through the chatbot below, or call (732) 307-3105 for help.</Header>
           </Message>
-          <iframe
-            allow="microphone;"
-            width="1130"
-            height="768"
-            src="https://console.dialogflow.com/api-client/demo/embedded/a46422cc-7a5c-4a92-9123-5cf4423b3f0f">
-          </iframe>
+          <Helmet>
+            <script type="text/javascript"
+              id="botcopy-embedder-d7lcfheammjct"
+              className="botcopy-embedder-d7lcfheammjct"
+              data-botId="6192d793f15a03000849cfd9"
+            >
+              var s = document.createElement('script');
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = 'https://widget.botcopy.com/js/injection.js';
+              document.getElementById('botcopy-embedder-d7lcfheammjct').appendChild(s);
+            </script>
+          </Helmet>
           <Label color='olive' size='big'>
             <Icon name='phone'/>
           Phone
