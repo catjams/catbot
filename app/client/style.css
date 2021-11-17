@@ -26,7 +26,60 @@
 
 .landingTop {
   background-image: url("https://19of32x2yl33s8o4xza0gf14-wpengine.netdna-ssl.com/wp-content/uploads/nlk768x420-6.jpg");
-  height: 400px;
+  height: 600px;
+  background-size: cover;
+}
+
+.landingBottom {
+  background-color: white;
+  height: 300px;
+}
+
+.heading {
+  position: absolute;
+  top: 29%;
+  left: 15%;
+  width: 30%;
+  font-family: SansSerif, serif;
+}
+
+.block {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  width: 400px;
+  height: 500px;
+}
+
+.pageLabel {
+  text-align: center;
+  position: absolute;
+  top: 10%;
+  left: 11%;
+  height: 17%;
+  width: 70%;
+}
+
+.pageLabel2 {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  height: 17%;
+  width: 70%
+}
+
+.pageLabel3 {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  height: 17%;
+  width: 70%;
+}
+
+.ui.Grid Label {
+  margin-left: 5%;
 }
 
 p {
