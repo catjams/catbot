@@ -23,10 +23,10 @@ class Landing extends React.Component {
 
         <div className='landingBottom'>
           <Container>
-            <Header as='h2' textAlign='center'>Contacts us or visit our website!</Header>
+            <Header as='h1' textAlign='center' style={{ paddingTop: 20 }}>Contacts us or visit our website!</Header>
             <Grid columns={3}>
               <Grid.Column textAlign='center'>
-                <Image src='https://icones.pro/wp-content/uploads/2021/05/icone-iphone-noire.png' size='small' centered/>
+                <Image src='https://blogs.mulesoft.com/wp-content/uploads/2014/10/icon-iphone-blue-big.png' size='small' centered/>
                 <Label color='olive' size='big' centered>
                   <Icon name='phone'/>
           Phone
@@ -35,7 +35,7 @@ class Landing extends React.Component {
               </Grid.Column>
 
               <Grid.Column textAlign='center'>
-                <Image src='https://www.shareicon.net/data/512x512/2016/07/14/606965_gmail_4096x4096.png' size='small' centered/>
+                <Image src='https://jasonsavard.com/forum/attachments/54aecef1955e7.png' size='small' centered/>
                 <Label color='orange' size='big'>
                   <Icon name='mail'/>
           Email
@@ -44,7 +44,7 @@ class Landing extends React.Component {
               </Grid.Column>
 
               <Grid.Column textAlign='center'>
-                <Image src='https://static.thenounproject.com/png/3080133-200.png' size='small' centered/>
+                <Image src='https://www.downloadclipart.net/large/website-png-hd.png' size='small' centered/>
                 <Label color='teal' size='big'>
                   <Icon name='mouse pointer'/>
           Website
