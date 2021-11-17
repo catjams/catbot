@@ -13,10 +13,10 @@ class NavBar extends React.Component {
 
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
-        <Menu.Item>
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/" key='landing'>
           <Header inverted as='h1'>OHA Catbot</Header>
         </Menu.Item>
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/" key='chat'>Chatbot</Menu.Item>
+        <Menu.Item as={NavLink} activeClassName="active" exact to="/catbot" key='chat'>Chatbot</Menu.Item>
         <Menu.Item as={NavLink} activeClassName="active" exact to="/tutor" key='tutor'>Tutorial</Menu.Item>
         <Menu.Item as={NavLink} activeClassName="active" exact to="/sendfeedback" key='sendfeedback'>Send Feedback</Menu.Item>
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (

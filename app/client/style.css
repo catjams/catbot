@@ -24,6 +24,11 @@
   padding-bottom: 15px;
 }
 
+.landingTop {
+  background-image: url("https://19of32x2yl33s8o4xza0gf14-wpengine.netdna-ssl.com/wp-content/uploads/nlk768x420-6.jpg");
+  height: 400px;
+}
+
 p {
   font-family: SansSerif, serif;
   font-size: 17px;
