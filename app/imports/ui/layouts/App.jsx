@@ -20,30 +20,36 @@ import AddIntent from '../pages/AddIntent';
 import ListIntent from '../pages/ListIntent';
 import EditIntent from '../pages/EditIntent';
 
+const pages = () => (
+  <div>
+    <NavBar/>
+    <Switch>
+      <Route path="/catbot" component={Catbot}/>
+      <Route path="/tutor" component={Tutorial}/>
+      <Route path="/signin" component={Signin}/>
+      <Route path="/signup" component={Signup}/>
+      <Route path="/signout" component={Signout}/>
+      <Route path="/sendfeedback" component={SendFeedback}/>
+      <AdminProtectedRoute path="/addintent" component={AddIntent}/>
+      <AdminProtectedRoute path="/listintent" component={ListIntent}/>
+      <AdminProtectedRoute path="/edit" component={EditIntent}/>
+      <AdminProtectedRoute path="/analytics" component={AnalyticsAdmin}/>
+      <AdminProtectedRoute path="/viewfeedbacks" component={ListFeedbacks}/>
+      <Route component={NotFound}/>
+    </Switch>
+    <Footer/>
+  </div>
+);
+
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
-          <NavBar/>
-          <Switch>
-            <Route exact path="/" component={Landing}/>
-            <Route path="/catbot" component={Catbot}/>
-            <Route path="/tutor" component={Tutorial}/>
-            <Route path="/signin" component={Signin}/>
-            <Route path="/signup" component={Signup}/>
-            <Route path="/signout" component={Signout}/>
-            <Route path="/sendfeedback" component={SendFeedback}/>
-            <AdminProtectedRoute path="/addintent" component={AddIntent}/>
-            <AdminProtectedRoute path="/listintent" component={ListIntent}/>
-            <AdminProtectedRoute path="/edit" component={EditIntent}/>
-            <AdminProtectedRoute path="/analytics" component={AnalyticsAdmin}/>
-            <AdminProtectedRoute path="/viewfeedbacks" component={ListFeedbacks}/>
-            <Route component={NotFound}/>
-          </Switch>
-          <Footer/>
-        </div>
+        <Switch>
+          <Route exact path="/" component={Landing}/>\
+          <Route component={pages}/>
+        </Switch>
       </Router>
     );
   }

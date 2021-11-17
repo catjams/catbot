@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Label, Icon, Header, Image, Grid } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -9,13 +10,13 @@ class Landing extends React.Component {
         <div className='landingTop'>
           <Header as='h1' textAlign='center' inverted className='heading'>Welcome to the OHA Catbot landing page! Click on one of the buttons to explore the website</Header>
           <div className='block'>
-            <Label as='a' color='blue' size='massive' className='pageLabel'>
+            <Label as={NavLink} color='blue' size='massive' className='pageLabel' activeClassName="active" exact to="/catbot" key='chat'>
               <img src='https://img1.picmix.com/output/stamp/normal/1/1/6/7/1917611_5dcbf.png' alt='catjam'/> Catbot
             </Label>
-            <Label as='a' color='blue' size='massive' className='pageLabel2'>
+            <Label as={NavLink} color='blue' size='massive' className='pageLabel2' activeClassName="active" exact to="/tutor" key='tutor'>
               <Icon name='book'/> Tutorial
             </Label>
-            <Label as='a' color='blue' size='massive' className='pageLabel3'>
+            <Label as={NavLink} color='blue' size='massive' className='pageLabel3' activeClassName="active" exact to="/tutor" key='tutor'>
               <Icon name='reply'/> Send Feedback
             </Label>
           </div>
