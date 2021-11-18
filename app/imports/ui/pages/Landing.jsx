@@ -4,9 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
+  state = { status: true }
 
   render() {
     const gridStyle = { height: '600px' };
+    const { status } = this.state;
     return (
       <div>
         <div className='landingTop'>
@@ -19,11 +21,11 @@ class Landing extends React.Component {
                 <Grid.Row className="landingButtons">
                   <Button as='div' labelPosition='right'>
                     {/* eslint-disable-next-line no-undef */}
-                    <Button color='blue' size='huge' className='pageLabel' onClick={window.clickBot}>
-                      <Icon name='chat' /> Open Catbot
+                    <Button color='blue' size='huge' className='pageLabel' onClick={ window.clickBot }>
+                      <Icon name={status ? 'chat' : 'phone'} /> {status ? 'Open Catbot' : '(732) 307-3105'}
                     </Button>
-                    <Label as="a" basic size='tiny' className="phonelabel">
-                      <Icon name='phone' inverted />
+                    <Label as="a" basic size='tiny' className="phonelabel" onClick={() => this.setState({ status: !status })}>
+                      <Icon name={status ? 'phone' : 'chat'} inverted />
                     </Label>
                   </Button>
                 </Grid.Row>
