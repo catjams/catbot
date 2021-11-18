@@ -21,16 +21,16 @@ class Tutorial extends React.Component {
           </Message>
           <Header as="h2">Landing</Header>
           <Container className='line'/>
-          <Image src='images/LandingPage.png' size='huge' centered/>
+          <Image src='images/Landing.png' size='huge' centered/>
           <Message>
             {/* eslint-disable-next-line max-len */}
             <p><Icon name='angle right'/>Above is the landing page. This is the home page for our catbot website. On the right side of the landing page you will find three buttons. These buttons allow you to navigate to the Catbot window as well as the tutorial and send feedback pages.</p>
           </Message>
-          <Image src='images/LandingPageButtons.png' size='huge' centered/>
+          <Image src='images/LandingButtons.png' size='huge' centered/>
           <Message>
             <p><Icon name='angle right'/>If you need to contact OHA for any reason, their phone and email contacts are available via the buttons at the bottom of the page. A link to the OHA official website is also provided.</p>
           </Message>
-          <Image src='images/LandingContacts.png' size='huge' centered/>
+          <Image src='images/LandingContacts2.png' size='huge' centered/>
           <Header as="h2">Chatbot</Header>
           <Container className='line'/>
           <Image src='images/ChatbotImage.png' size='huge' centered/>
