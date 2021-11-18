@@ -54,3 +54,11 @@ p {
   background-color: #82AB33;
   color: white;
 }
+
+.ui.tiny.basic.label.phonelabel{
+  background-color: #82AB33 !important;
+}
+
+.phone.inverted.icon{
+  margin: 0 0.05em 0 0.05em !important;
+}

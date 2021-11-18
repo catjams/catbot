@@ -3,7 +3,7 @@ import React from 'react';
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
   render() {
-    const divStyle = { paddingTop: '15px', backgroundColor: '#3469CA', color: 'white', borderTop: '5px solid #3469CA' };
+    const divStyle = { paddingTop: '15px', backgroundColor: '#3469CA', color: 'white', borderTop: '5px solid #3469CA', paddingBottom: '15px' };
     return (
 
       <footer className='blue-background'>

@@ -6,19 +6,25 @@ import { NavLink } from 'react-router-dom';
 class Landing extends React.Component {
 
   render() {
+    const gridStyle = { height: '600px' };
     return (
       <div>
         <div className='landingTop'>
-          <Grid container columns={2} centered >
-            <Grid.Row verticalAlign='middle'>
+          <Grid container columns={2} centered style={gridStyle}>
+            <Grid.Row verticalAlign="middle">
               <Grid.Column>
                 <Header as='h1' textAlign='center' inverted className='heading'>Welcome to the OHA Catbot landing page! Click on one of the buttons to explore the website</Header>
               </Grid.Column>
               <Grid.Column verticalAlign="middle">
                 <Grid.Row className="landingButtons">
-                  {/* eslint-disable-next-line no-undef */}
-                  <Button color='blue' size='huge' className='pageLabel' onClick={window.clickBot}>
-                    <Icon name='chat' /> Open Catbot
+                  <Button as='div' labelPosition='right'>
+                    {/* eslint-disable-next-line no-undef */}
+                    <Button color='blue' size='huge' className='pageLabel' onClick={window.clickBot}>
+                      <Icon name='chat' /> Open Catbot
+                    </Button>
+                    <Label as="a" basic size='tiny' className="phonelabel">
+                      <Icon name='phone' inverted />
+                    </Label>
                   </Button>
                 </Grid.Row>
                 <Grid.Row className="landingButtons">
@@ -41,7 +47,7 @@ class Landing extends React.Component {
             <Header as='h1' textAlign='center' style={{ paddingTop: 20 }}>Contacts us or visit our website!</Header>
             <Grid columns={3}>
               <Grid.Column textAlign='center'>
-                <Image src='https://blogs.mulesoft.com/wp-content/uploads/2014/10/icon-iphone-blue-big.png' size='small' centered/>
+                <Image src='https://cdn.discordapp.com/attachments/901654524018704428/910836030213607454/phone.png' size='small' centered/>
                 <Label className="ohagreen" size='big'>
                   <Icon name='phone'/>
           Phone
@@ -50,7 +56,7 @@ class Landing extends React.Component {
               </Grid.Column>
 
               <Grid.Column textAlign='center'>
-                <Image src='https://jasonsavard.com/forum/attachments/54aecef1955e7.png' size='small' centered/>
+                <Image src='https://cdn.discordapp.com/attachments/901654524018704428/910836036303720499/email.png' size='small' centered/>
                 <Label className="ohagreen" size='big'>
                   <Icon name='mail'/>
           Email
@@ -59,7 +65,7 @@ class Landing extends React.Component {
               </Grid.Column>
 
               <Grid.Column textAlign='center'>
-                <Image src='https://www.downloadclipart.net/large/website-png-hd.png' size='small' centered/>
+                <Image src='https://cdn.discordapp.com/attachments/901654524018704428/910836034009452564/world.png' size='small' centered/>
                 <Label className="ohagreen" size='big'>
                   <Icon name='mouse pointer'/>
           Website
