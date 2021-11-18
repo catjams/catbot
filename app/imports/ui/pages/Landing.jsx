@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
-
   render() {
+    const gridStyle = { height: '600px' };
     return (
       <div>
         <div className='landingTop'>
-          <Grid container columns={2} centered >
-            <Grid.Row verticalAlign='middle'>
+          <Grid container columns={2} centered style={gridStyle}>
+            <Grid.Row verticalAlign="middle">
               <Grid.Column>
                 <Header as='h1' textAlign='center' inverted className='heading'>Welcome to the OHA Catbot landing page! Click on one of the buttons to explore the website</Header>
               </Grid.Column>
@@ -50,7 +50,7 @@ class Landing extends React.Component {
               </Grid.Column>
 
               <Grid.Column textAlign='center'>
-                <Image src='https://jasonsavard.com/forum/attachments/54aecef1955e7.png' size='small' centered/>
+                <Image src='https://cdn.discordapp.com/attachments/901654524018704428/910776043453960192/Communication-email-blue-icon.png' size='small' centered/>
                 <Label className="ohagreen" size='big'>
                   <Icon name='mail'/>
           Email
