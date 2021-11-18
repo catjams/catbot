@@ -7,7 +7,6 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import Catbot from '../pages/Catbot';
 import Tutorial from '../pages/Tutorial';
 import AnalyticsAdmin from '../pages/AnalyticsAdmin';
 import NotFound from '../pages/NotFound';
@@ -24,7 +23,6 @@ const pages = () => (
   <div>
     <NavBar/>
     <Switch>
-      <Route path="/catbot" component={Catbot}/>
       <Route path="/tutor" component={Tutorial}/>
       <Route path="/signin" component={Signin}/>
       <Route path="/signup" component={Signup}/>
@@ -37,7 +35,6 @@ const pages = () => (
       <AdminProtectedRoute path="/viewfeedbacks" component={ListFeedbacks}/>
       <Route component={NotFound}/>
     </Switch>
-    <Footer/>
   </div>
 );
 
@@ -50,6 +47,7 @@ class App extends React.Component {
           <Route exact path="/" component={Landing}/>\
           <Route component={pages}/>
         </Switch>
+        <Footer/>
       </Router>
     );
   }
