@@ -51,11 +51,11 @@ class Tutorial extends React.Component {
             {/* eslint-disable-next-line max-len */}
             <p><Icon name='angle right'/>This is the Send Feedback page. This page allows users to send feedback regarding the chatbot or website. In order to send in feedback the user must fill out their contact details, a name for the input, select what type of feedback they are sending in, and provide a description of their feedback.</p>
           </Message>
-          <Image src='images/feedbackP.png' size='huge'/>
+          <Image src='images/FeedbackInfo.png' size='huge'/>
           <Message>
             <p><Icon name='angle right'/>When you are done filling out all the fields press the submit button and your feedback will be recorded for staff to look at and consider.</p>
           </Message>
-          <Image src='images/submit.png' size='huge'/>
+          <Image src='images/feedbacksubmit.png' size='huge'/>
           <Container className='bottom'/>
         </Container>
       </div>
