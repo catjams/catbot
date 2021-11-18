@@ -52,3 +52,7 @@ p {
   font-size: 17px;
 }
 
+.ui.big.label.ohagreen{
+  background-color: #82AB33;
+  color: white;
+}

@@ -42,7 +42,7 @@ class Landing extends React.Component {
             <Grid columns={3}>
               <Grid.Column textAlign='center'>
                 <Image src='https://blogs.mulesoft.com/wp-content/uploads/2014/10/icon-iphone-blue-big.png' size='small' centered/>
-                <Label color='olive' size='big'>
+                <Label className="ohagreen" size='big'>
                   <Icon name='phone'/>
           Phone
                   <Label.Detail><a href="tel: 808-594-1835" className="white-text" >808-594-1835</a></Label.Detail>
@@ -51,7 +51,7 @@ class Landing extends React.Component {
 
               <Grid.Column textAlign='center'>
                 <Image src='https://jasonsavard.com/forum/attachments/54aecef1955e7.png' size='small' centered/>
-                <Label color='orange' size='big'>
+                <Label className="ohagreen" size='big'>
                   <Icon name='mail'/>
           Email
                   <Label.Detail><a href="mailto: info@oha.org" className="white-text">info@oha.org</a></Label.Detail>
@@ -60,7 +60,7 @@ class Landing extends React.Component {
 
               <Grid.Column textAlign='center'>
                 <Image src='https://www.downloadclipart.net/large/website-png-hd.png' size='small' centered/>
-                <Label color='teal' size='big'>
+                <Label className="ohagreen" size='big'>
                   <Icon name='mouse pointer'/>
           Website
                   <Label.Detail><a target="_blank" rel="noopener noreferrer" href="https://www.oha.org/" className="white-text">https://www.oha.org/</a></Label.Detail>
