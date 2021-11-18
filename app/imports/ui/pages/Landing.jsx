@@ -16,9 +16,14 @@ class Landing extends React.Component {
               </Grid.Column>
               <Grid.Column verticalAlign="middle">
                 <Grid.Row className="landingButtons">
-                  {/* eslint-disable-next-line no-undef */}
-                  <Button color='blue' size='huge' className='pageLabel' onClick={window.clickBot}>
-                    <Icon name='chat' /> Open Catbot
+                  <Button as='div' labelPosition='right'>
+                    {/* eslint-disable-next-line no-undef */}
+                    <Button color='blue' size='huge' className='pageLabel' onClick={window.clickBot}>
+                      <Icon name='chat' /> Open Catbot
+                    </Button>
+                    <Label as="a" basic size='tiny'>
+                      <Icon name='phone' />
+                    </Label>
                   </Button>
                 </Grid.Row>
                 <Grid.Row className="landingButtons">
