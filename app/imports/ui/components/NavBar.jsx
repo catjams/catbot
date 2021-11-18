@@ -29,6 +29,17 @@ class NavBar extends React.Component {
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Menu.Item as={NavLink} activeClassName="active" exact to="/listintent" key='listintent'>List Intent</Menu.Item>
         ) : ''}
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+          <Menu.Item>
+            <Dropdown text="External Websites">
+              <Dropdown.Menu>
+                <Dropdown.Item text="Botcopy" target="_blank" rel="noopener noreferrer" href="https://portal.botcopy.com/"/>
+                <Dropdown.Item text="Janis" target="_blank" rel="noopener noreferrer" href="https://www.janis.ai/dashboard/"/>
+                <Dropdown.Item text="Dialogflow" target="_blank" rel="noopener noreferrer" href="https://dialogflow.cloud.google.com/#/agent/ohabot-fmvm/intents"/>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Menu.Item>
+        ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
             <Dropdown id="login-dropdown" text="Admin Login" pointing="top right" icon={'user'}>
