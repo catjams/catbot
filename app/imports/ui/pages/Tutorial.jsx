@@ -19,22 +19,31 @@ class Tutorial extends React.Component {
           <Message centered textAlign='center'>
             <p><Icon name='angle right'/>This is the navigation bar. Clicking on elements in the bar allows you to move to other pages in the application.</p>
           </Message>
-          <Header as="h2">Chatbot</Header>
+          <Header as="h2">Landing</Header>
           <Container className='line'/>
-          <Image src='images/chatbot.png' size='huge'/>
+          <Image src='images/LandingPage.png' size='huge'/>
           <Message centered textAlign='center'>
             {/* eslint-disable-next-line max-len */}
-            <p><Icon name='angle right'/>Above is the chatbot page. This is where you will be asking the chatbot questions and receiving answers. If you have an inquiry, it can be sent to the chatbot through text or voice by typing words into the text-box on the bottom, or clicking on the mic symbol on the bottom right of the chatbot window respectively.</p>
+            <p><Icon name='angle right'/>Above is the landing page. This is the home page for our catbot website. On the right side of the landing page you will find three buttons. These buttons allow you to navigate to the Catbot window as well as the tutorial and send feedback pages.</p>
           </Message>
-          <Image src='images/question.png' size='huge'/>
+          <Image src='images/LandingPageButtons.png' size='huge'/>
           <Message>
-            <p><Icon name='angle right'/>After asking a question the text will be displayed inside a message on the left side of the screen. Then the chatbot will send a response contained in a message on the right side of the screen.</p>
+            <p><Icon name='angle right'/>If you need to contact OHA for any reason, their phone and email contacts are available via the buttons at the bottom of the page. A link to the OHA official website is also provided.</p>
           </Message>
-          <Image src='images/message1.png' size='huge'/>
+          <Image src='images/LandingContacts.png' size='huge'/>
+          <Header as="h2">Chatbot</Header>
+          <Container className='line'/>
+          <Image src='images/ChatbotImage.png' size='huge'/>
           <Message>
-            <p><Icon name='angle right'/>If you need to contact OHA for any reason, their phone and email contacts are available via the buttons below the chatbot. A link to the OHA official website is also provided.</p>
+            {/* eslint-disable-next-line max-len */}
+            <p><Icon name='angle right'/>The chatbot window is shown in the picture above. This is where you will be asking the chatbot questions and receiving answers. If you have an inquiry, it can be sent to the chatbot through text or voice by typing words into the text-box on the bottom, or clicking on the mic symbol on the bottom right of the chatbot window respectively</p>
           </Message>
-          <Image src='images/contact.png' size='huge'/>
+          <Image src='images/ChatbotTextOptions.png' size='huge'/>
+          <Message>
+            {/* eslint-disable-next-line max-len,react/no-unescaped-entities */}
+            <p><Icon name='angle right'/>Questions you ask the chatbot will be displayed on the right side of the window in green. The chatbot's response will then be shown as a grey message on the left side of the window. </p>
+          </Message>
+          <Image src='images/ChatbotResponse2.png' size='huge'/>
           <Header as="h2">Send Feedback</Header>
           <Container className='line'/>
           <Image src='images/feedback.png' size='huge'/>
