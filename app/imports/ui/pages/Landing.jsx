@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
+
   render() {
     const gridStyle = { height: '600px' };
     return (
@@ -21,8 +22,8 @@ class Landing extends React.Component {
                     <Button color='blue' size='huge' className='pageLabel' onClick={window.clickBot}>
                       <Icon name='chat' /> Open Catbot
                     </Button>
-                    <Label as="a" basic size='tiny'>
-                      <Icon name='phone' />
+                    <Label as="a" basic size='tiny' className="phonelabel">
+                      <Icon name='phone' inverted />
                     </Label>
                   </Button>
                 </Grid.Row>
