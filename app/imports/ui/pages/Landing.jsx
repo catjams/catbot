@@ -46,7 +46,7 @@ class Landing extends React.Component {
             <Header as='h1' textAlign='center' style={{ paddingTop: 20 }}>Contacts us or visit our website!</Header>
             <Grid columns={3}>
               <Grid.Column textAlign='center'>
-                <Image src='https://blogs.mulesoft.com/wp-content/uploads/2014/10/icon-iphone-blue-big.png' size='small' centered/>
+                <Image src='https://cdn.discordapp.com/attachments/901654524018704428/910836030213607454/phone.png' size='small' centered/>
                 <Label className="ohagreen" size='big'>
                   <Icon name='phone'/>
           Phone
@@ -55,7 +55,7 @@ class Landing extends React.Component {
               </Grid.Column>
 
               <Grid.Column textAlign='center'>
-                <Image src='https://cdn.discordapp.com/attachments/901654524018704428/910776043453960192/Communication-email-blue-icon.png' size='small' centered/>
+                <Image src='https://cdn.discordapp.com/attachments/901654524018704428/910836036303720499/email.png' size='small' centered/>
                 <Label className="ohagreen" size='big'>
                   <Icon name='mail'/>
           Email
@@ -64,7 +64,7 @@ class Landing extends React.Component {
               </Grid.Column>
 
               <Grid.Column textAlign='center'>
-                <Image src='https://www.downloadclipart.net/large/website-png-hd.png' size='small' centered/>
+                <Image src='https://cdn.discordapp.com/attachments/901654524018704428/910836034009452564/world.png' size='small' centered/>
                 <Label className="ohagreen" size='big'>
                   <Icon name='mouse pointer'/>
           Website
