@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
+
   render() {
     return (
       <div>
@@ -15,7 +16,8 @@ class Landing extends React.Component {
               </Grid.Column>
               <Grid.Column verticalAlign="middle">
                 <Grid.Row className="landingButtons">
-                  <Button color='blue' size='huge' className='pageLabel'>
+                  {/* eslint-disable-next-line no-undef */}
+                  <Button color='blue' size='huge' className='pageLabel' onClick={window.clickBot}>
                     <Icon name='chat' /> Catbot
                   </Button>
                 </Grid.Row>
@@ -25,7 +27,7 @@ class Landing extends React.Component {
                   </Button>
                 </Grid.Row>
                 <Grid.Row className="landingButtons">
-                  <Button as={NavLink} color='blue' size='huge' className='pageLabel3' exact to="/tutor" key='tutor'>
+                  <Button as={NavLink} color='blue' size='huge' className='pageLabel3' exact to="/sendfeedback" key='sendfeedback'>
                     <Icon name='reply'/> Send Feedback
                   </Button>
                 </Grid.Row>

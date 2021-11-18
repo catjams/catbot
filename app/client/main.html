@@ -6,7 +6,6 @@
 </head>
 
 <body>
-  <div id="root"></div>
   <script type="text/javascript"
           id="botcopy-embedder-d7lcfheammjct"
           className="botcopy-embedder-d7lcfheammjct"
@@ -17,5 +16,10 @@
     s.async = true;
     s.src = 'https://widget.botcopy.com/js/injection.js';
     document.getElementById('botcopy-embedder-d7lcfheammjct').appendChild(s);
+    function clickBot(){
+      Botcopy.openWindow();
+    }
   </script>
+
+  <div id="root"></div>
 </body>
