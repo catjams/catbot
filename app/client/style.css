@@ -25,9 +25,10 @@
 }
 
 .landingTop {
-  background-image: url("https://19of32x2yl33s8o4xza0gf14-wpengine.netdna-ssl.com/wp-content/uploads/nlk768x420-6.jpg");
+  background-image: url("https://images.unsplash.com/photo-1479947119049-7342c14b8122?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80%22");
   height: 600px;
   background-size: cover;
+  background-position: center;
 }
 
 .landingBottom {
