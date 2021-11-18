@@ -18,7 +18,7 @@ class Landing extends React.Component {
                 <Grid.Row className="landingButtons">
                   {/* eslint-disable-next-line no-undef */}
                   <Button color='blue' size='huge' className='pageLabel' onClick={window.clickBot}>
-                    <Icon name='chat' /> Catbot
+                    <Icon name='chat' /> Open Catbot
                   </Button>
                 </Grid.Row>
                 <Grid.Row className="landingButtons">
