@@ -21,7 +21,7 @@ class Landing extends React.Component {
                 <Grid.Row className="landingButtons">
                   <Button as='div' labelPosition='right'>
                     {/* eslint-disable-next-line no-undef */}
-                    <Button color='blue' size='huge' className='pageLabel' onClick={status ? window.clickBot : }>
+                    <Button color='blue' size='huge' className='pageLabel' onClick={ window.clickBot }>
                       <Icon name={status ? 'chat' : 'phone'} /> {status ? 'Open Catbot' : '(732) 307-3105'}
                     </Button>
                     <Label as="a" basic size='tiny' className="phonelabel" onClick={() => this.setState({ status: !status })}>
