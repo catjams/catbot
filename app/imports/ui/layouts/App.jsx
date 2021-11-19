@@ -78,7 +78,7 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
       const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
       return (isLogged && isAdmin) ?
         (<Component {...props} />) :
-        (<Redirect to={{ pathname: '/', state: { from: props.location } }}/>
+        (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
         );
     }}
   />
