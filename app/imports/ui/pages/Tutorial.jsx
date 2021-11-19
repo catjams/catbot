@@ -28,6 +28,13 @@ class Tutorial extends React.Component {
           </Message>
           <Image src='images/LandingButtons.png' size='huge' centered/>
           <Message>
+            {/* eslint-disable-next-line max-len */}
+            <p><Icon name='angle right'/>If you would like to call the chatbot instead, click on the small green button to the right of the Catbot button. This will cause the button to call the chatbot instead of opening the chatbot window on the website. The button will display the chatbot phone number instead of the usual text. If you want to switch back simply click on the small green button again.</p>
+          </Message>
+          <Image src='images/LandingSwap.png' size='huge' centered/>
+          <Container style={{ marginTop: '15px' }}/>
+          <Image src='images/LandingPhone.png' size='huge' centered/>
+          <Message>
             <p><Icon name='angle right'/>If you need to contact OHA for any reason, their phone and email contacts are available via the buttons at the bottom of the page. A link to the OHA official website is also provided.</p>
           </Message>
           <Image src='images/LandingContacts2.png' size='huge' centered/>
