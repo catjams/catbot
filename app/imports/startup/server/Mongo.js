@@ -1,5 +1,5 @@
-/* import { Meteor } from 'meteor/meteor';
-
+import { Meteor } from 'meteor/meteor';
+/*
  eslint-disable no-console */
 /*
 // Initialize the database with a default data document.
@@ -16,3 +16,10 @@ function addData(data) {
   }
 }
 */
+
+if (Meteor.settings.loadAssetsFile) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  
+}
