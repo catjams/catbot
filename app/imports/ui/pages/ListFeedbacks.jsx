@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { UserFeedbacks } from '../../api/userFeedback/UserFeedback';
 import Feedback from '../components/Feedback';
+import { UserStats } from '../../api/userStats/UserStats';
 
 /** Renders a table containing all of the UserFeedBack documents. Use <UserFeedBack> to render each row. */
 class ListFeedback extends React.Component {
@@ -49,8 +50,9 @@ ListFeedback.propTypes = {
 export default withTracker(() => {
   // Get access to UserFeedBack documents.
   const subscription = Meteor.subscribe(UserFeedbacks.adminPublicationName);
+  const subscription2 = Meteor.subscribe(UserStats.adminPublicationName);
   // Determine if the subscription is ready
-  const ready = subscription.ready();
+  const ready = subscription.ready() && subscription2.ready();
   // Get the UserFeedBack documents
   const feedbacks = UserFeedbacks.collection.find({}).fetch();
   return {
