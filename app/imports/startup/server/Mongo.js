@@ -18,7 +18,7 @@ function addUserStats({ textPayload, timestamp }) {
 }
 
 if (Meteor.settings.loadAssetsFile && UserStats.collection.find().count() === 0) {
-  const assetsFileName = 'dataTest.json';
+  const assetsFileName = 'data.json';
   // eslint-disable-next-line no-console
   console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
