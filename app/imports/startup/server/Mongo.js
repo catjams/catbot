@@ -24,19 +24,21 @@ function parseTime(str) {
   return str.substring(0, str.length - 5);
 }
 
-function addUserStats({ textPayload, timestamp }) {
+function addUserStats({ textPayload, timestamp, trace }) {
   const intent = parseIntent(textPayload);
   const time = parseTime(timestamp);
+  const session = trace;
   if (intent !== 'none') {
-    UserStats.collection.insert({ intent, time });
+    UserStats.collection.insert({ intent, time, session });
   }
 }
 
-function addUserInputs({ textPayload, timestamp }) {
+function addUserInputs({ textPayload, timestamp, trace }) {
   const input = parseInput(textPayload);
   const time = parseTime(timestamp);
+  const session = trace;
   if (input !== 'none') {
-    UserInputs.collection.insert({ input, time });
+    UserInputs.collection.insert({ input, time, session });
   }
 }
 

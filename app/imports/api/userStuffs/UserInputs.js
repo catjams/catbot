@@ -15,6 +15,7 @@ class UserInputsCollection {
     this.schema = new SimpleSchema({
       input: String,
       time: String,
+      session: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
