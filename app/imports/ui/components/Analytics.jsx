@@ -16,6 +16,8 @@ import PropTypes from 'prop-types';
 class Analytics extends React.Component {
 
   render() {
+    console.log(this.props.intentLabels);
+    console.log(this.props.numbers);
     ChartJS.register(
       CategoryScale,
       LinearScale,
@@ -38,18 +40,18 @@ class Analytics extends React.Component {
         },
         title: {
           display: true,
-          text: 'Chart.js Horizontal Bar Chart',
+          text: `Intents Distribution (${this.props.intentLabels.length})`,
         },
       },
     };
-    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const labels = this.props.intentLabels;
 
     const data = {
       labels,
       datasets: [
         {
-          label: 'Dataset 1',
-          data: [12, 19, 3, 5, 2, 3],
+          label: 'Bot intents',
+          data: this.props.numbers,
           borderColor: 'rgb(255, 99, 132)',
           backgroundColor: 'rgba(255, 99, 132, 0.5)',
         },
@@ -64,6 +66,7 @@ class Analytics extends React.Component {
 // Require a document to be passed to this component.
 Analytics.propTypes = {
   intentLabels: PropTypes.array.isRequired,
+  numbers: PropTypes.array.isRequired,
 };
 
 export default Analytics;
