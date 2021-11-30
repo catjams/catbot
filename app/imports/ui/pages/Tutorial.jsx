@@ -40,7 +40,7 @@ class Tutorial extends React.Component {
                   {/* eslint-disable-next-line max-len */}
                   <p><Icon name='angle right'/>Here we have the landing page. This is the home page for our catbot website. On the right side of the landing page you will find three buttons. These buttons allow you to navigate to the Catbot window as well as the tutorial and send feedback pages.</p>
                 </Message>
-                <Container style={{ marginTop: '32%' }}/>
+                <Container style={{ marginTop: '36%' }}/>
                 <Message>
                   {/* eslint-disable-next-line max-len */}
                   <p><Icon name='angle right'/>If you would like to call the chatbot instead, click on the small green button to the right of the Catbot button. This will cause the button to call the chatbot instead of opening the chatbot window on the website.</p>
@@ -49,18 +49,18 @@ class Tutorial extends React.Component {
                 <Message>
                   <p><Icon name='angle right'/>Now the chatbot button will display the chatbot phone number instead of the usual text. If you would like to switch back simply click on the small green button again.</p>
                 </Message>
-                <Container style={{ marginTop: '36%' }}/>
+                <Container style={{ marginTop: '40%' }}/>
                 <Message>
                   <p><Icon name='angle right'/>If you need to contact OHA for any reason, their phone and email contacts are available via the buttons at the bottom of the page. A link to the OHA official website is also provided.</p>
                 </Message>
               </Grid.Column>
               <Grid.Column verticalAlign='middle'>
                 <Image src='images/LandingButtons.png' size='huge' centered bordered/>
-                <Container style={{ marginTop: '15px' }}/>
+                <Container style={{ marginTop: '30px' }}/>
                 <Image src='images/LandingSwap.png' size='huge' centered bordered/>
-                <Container style={{ marginTop: '15px' }}/>
+                <Container style={{ marginTop: '30px' }}/>
                 <Image src='images/LandingPhone.png' size='huge' centered bordered/>
-                <Container style={{ marginTop: '15px' }}/>
+                <Container style={{ marginTop: '30px' }}/>
                 <Image src='images/LandingContacts2.png' size='huge' centered bordered/>
               </Grid.Column>
             </Grid.Row>
@@ -73,12 +73,12 @@ class Tutorial extends React.Component {
                   {/* eslint-disable-next-line max-len */}
                   <p><Icon name='angle right'/>The chatbot window is shown in the picture to the right. Clicking on the chatbot button or the small circular button on the bottom right of the page will open this window. This is where you will be asking the chatbot questions and receiving answers.</p>
                 </Message>
-                <Container style={{ marginTop: '30%' }}/>
+                <Container style={{ marginTop: '32%' }}/>
                 <Message>
                   {/* eslint-disable-next-line max-len */}
                   <p><Icon name='angle right'/>If you have an inquiry, it can be sent to the chatbot through text or voice by typing words into the text-box on the bottom, or clicking on the mic symbol on the bottom right of the chatbot window respectively</p>
                 </Message>
-                <Container style={{ marginTop: '30%' }}/>
+                <Container style={{ marginTop: '35%' }}/>
                 <Message>
                   {/* eslint-disable-next-line max-len,react/no-unescaped-entities */}
                   <p><Icon name='angle right'/>Questions you ask the chatbot will be displayed on the right side of the window in green. The chatbot's response will then be shown as a grey message on the left side of the window. </p>
@@ -86,9 +86,9 @@ class Tutorial extends React.Component {
               </Grid.Column>
               <Grid.Column>
                 <Image src='images/ChatbotImage.png' size='huge' centered bordered/>
-                <Container style={{ marginTop: '15px' }}/>
+                <Container style={{ marginTop: '30px' }}/>
                 <Image src='images/ChatbotTextOptions.png' size='huge' centered bordered/>
-                <Container style={{ marginTop: '15px' }}/>
+                <Container style={{ marginTop: '30px' }}/>
                 <Image src='images/ChatbotResponse2.png' size='huge' centered bordered/>
               </Grid.Column>
             </Grid.Row>
@@ -100,22 +100,22 @@ class Tutorial extends React.Component {
                 <Message>
                   <p><Icon name='angle right'/>This is the Send Feedback page. This page allows users to send feedback regarding the chatbot or website. </p>
                 </Message>
-                <Container style={{ marginTop: '35%' }}/>
+                <Container style={{ marginTop: '38%' }}/>
                 <Message>
                   <p><Icon name='angle right'/>In order to send in feedback the user must fill out their contact details, a name for the input, select what type of feedback they are sending in, and provide a description of their feedback.</p>
                 </Message>
-                <Container style={{ marginTop: '32%' }}/>
+                <Container style={{ marginTop: '36%' }}/>
                 <Message>
                   <p><Icon name='angle right'/>When you are done filling out all the fields press the submit button and your feedback will be recorded for staff to look at and consider.</p>
                 </Message>
               </Grid.Column>
               <Grid.Column>
                 <Image src='images/feedback.png' size='huge' centered bordered/>
-                <Container style={{ marginTop: '15px' }}/>
+                <Container style={{ marginTop: '30px' }}/>
                 <Image src='images/FeedbackInfo.png' size='huge' centered bordered/>
-                <Container style={{ marginTop: '15px' }}/>
+                <Container style={{ marginTop: '30px' }}/>
                 <Image src='images/feedbacksubmit.png' size='huge' centered bordered/>
-                <Container style={{ marginTop: '15px' }}/>
+                <Container style={{ marginTop: '30px' }}/>
               </Grid.Column>
             </Grid.Row>
           </Grid>
