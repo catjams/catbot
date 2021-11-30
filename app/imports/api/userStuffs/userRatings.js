@@ -41,4 +41,4 @@ class SurveyCollection {
  * The singleton instance of the SurveyCollection.
  * @type {SurveyCollection}
  */
-export const Survey = new SurveyCollection();
+export const UserRatings = new SurveyCollection();

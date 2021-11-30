@@ -1,11 +1,13 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid } from 'semantic-ui-react';
+import { Header, Loader, Grid, Tab, Container, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { UserStats } from '../../api/userStuffs/UserStats';
 import Analytics from '../components/Analytics';
+import { UserInputs } from '../../api/userStuffs/UserInputs';
+import Inputs from '../components/Inputs';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AnalyticsAdmin extends React.Component {
@@ -26,21 +28,57 @@ class AnalyticsAdmin extends React.Component {
       }
     }
 
+    const panes = [
+      {
+        menuItem: 'User Statistics',
+        render: () => <Tab.Pane attached={false}>
+          <Grid container={true}>
+            <Grid.Row>
+              <Header as="h1" textAlign="center">Bot Analytics</Header>
+            </Grid.Row>
+            <Grid.Row>
+              <Analytics intentLabels={intentLabels} numbers={intentsNum}/>
+            </Grid.Row>
+          </Grid>
+        </Tab.Pane>,
+      },
+      {
+        menuItem: 'User Responses',
+        render: () => <Tab.Pane attached={false}>
+          <Container>
+            <Header as="h2" textAlign="center">List of User Responses</Header>
+            <Table celled>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Session</Table.HeaderCell>
+                  <Table.HeaderCell>Responses</Table.HeaderCell>
+                  <Table.HeaderCell>Time</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {this.props.inputs.map((input) => <Inputs key={input._id} input={input} UserInputs={UserInputs} />)}
+              </Table.Body>
+            </Table>
+          </Container>
+        </Tab.Pane>,
+      },
+      {
+        menuItem: 'User Ratings',
+        render: () => <Tab.Pane attached={false}>
+          Tab 3 Content
+        </Tab.Pane>,
+      },
+    ];
+
     return (
-      <Grid container={true}>
-        <Grid.Row>
-          <Header as="h1" textAlign="center">Bot Analytics</Header>
-        </Grid.Row>
-        <Grid.Row>
-          <Analytics intentLabels={intentLabels} numbers={intentsNum}/>
-        </Grid.Row>
-      </Grid>
+      <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
     );
   }
 }
 
 AnalyticsAdmin.propTypes = {
   stats: PropTypes.array.isRequired,
+  inputs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -48,12 +86,15 @@ AnalyticsAdmin.propTypes = {
 export default withTracker(() => {
   // Get access to UserStats documents.
   const subscription = Meteor.subscribe(UserStats.adminPublicationName);
+  const subscription2 = Meteor.subscribe(UserInputs.adminPublicationName);
   // Determine if the subscription is ready
-  const ready = subscription.ready();
+  const ready = subscription.ready() && subscription2.ready();
   // Get the UserStats documents
   const stats = UserStats.collection.find({}).fetch();
+  const inputs = UserInputs.collection.find({}).fetch();
   return {
     stats,
+    inputs,
     ready,
   };
 })(AnalyticsAdmin);
