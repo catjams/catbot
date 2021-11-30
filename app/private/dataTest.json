@@ -1,0 +1,22 @@
+[
+  {
+    "textPayload": "Dialogflow Response : id: \"716bb093-9b8c-444f-b396-6f672f9b9409-0c9356c1\"\nlang: \"en\"\nsession_id: \"3e018f47-4551-50ba-276e-87341ae37db4\"\ntimestamp: \"2021-11-18T20:49:25.809669Z\"\nresult {\n  source: \"agent\"\n  resolved_query: \"GOOGLE_ASSISTANT_WELCOME\"\n  action: \"input.welcome\"\n  score: 1.0\n  parameters {\n  }\n  contexts {\n    name: \"botcopy-timezone\"\n    lifespan: 19\n    parameters {\n      fields {\n        key: \"fields\"\n        value {\n          struct_value {\n            fields {\n              key: \"tz\"\n              value {\n                struct_value {\n                  fields {\n                    key: \"kind\"\n                    value {\n                      string_value: \"stringValue\"\n                    }\n                  }\n                  fields {\n                    key: \"stringValue\"\n                    value {\n                      string_value: \"Pacific/Honolulu\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  contexts {\n    name: \"botcopy-botid\"\n    lifespan: 19\n    parameters {\n      fields {\n        key: \"fields\"\n        value {\n          struct_value {\n            fields {\n              key: \"botId\"\n              value {\n                struct_value {\n                  fields {\n                    key: \"kind\"\n                    value {\n                      string_value: \"stringValue\"\n                    }\n                  }\n                  fields {\n                    key: \"stringValue\"\n                    value {\n                      string_value: \"6192d793f15a03000849cfd9\"\n                    }\n                  }\n                }\n              }\n            }\n            fields {\n              key: \"origin\"\n              value {\n                struct_value {\n                  fields {\n                    key: \"kind\"\n                    value {\n                      string_value: \"stringValue\"\n                    }\n                  }\n                  fields {\n                    key: \"stringValue\"\n                    value {\n                      string_value: \"https://catbot.bar\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  metadata {\n    intent_id: \"46ffa1f2-5cb4-4c15-82f6-c0a86cef3609\"\n    intent_name: \"Default Welcome Intent\"\n    webhook_used: \"false\"\n    webhook_for_slot_filling_used: \"false\"\n    is_fallback_intent: \"false\"\n  }\n  fulfillment {\n    speech: \"Aloha! I am Catbot. I know important information and benefits regarding the Office of Hawaiian Affairs. How may I assist you?\"\n    messages {\n      lang: \"en\"\n      type {\n        number_value: 0.0\n      }\n      speech {\n        string_value: \"Aloha! I am Catbot. I know important information and benefits regarding the Office of Hawaiian Affairs. How may I assist you?\"\n      }\n    }\n  }\n}\nstatus {\n  code: 200\n  error_type: \"success\"\n}\n",
+    "insertId": "z8yh23fvz6rm1",
+    "resource": {
+      "type": "global",
+      "labels": {
+        "project_id": "ohabot-fmvm"
+      }
+    },
+    "timestamp": "2021-11-18T20:49:25.825867Z",
+    "severity": "INFO",
+    "labels": {
+      "type": "dialogflow_response",
+      "request_id": "716bb093-9b8c-444f-b396-6f672f9b9409-0c9356c1",
+      "protocol": "V2_BETA1"
+    },
+    "logName": "projects/ohabot-fmvm/logs/dialogflow_agent",
+    "trace": "3e018f47-4551-50ba-276e-87341ae37db4",
+    "receiveTimestamp": "2021-11-18T20:49:25.837226227Z"
+  }
+]
