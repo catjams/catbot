@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { UserInputs } from '../../api/userStuffs/UserInputs';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
 class Input extends React.Component {
