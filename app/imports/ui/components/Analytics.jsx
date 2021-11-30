@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
 import {
   Chart as ChartJS,
   CategoryScale,
