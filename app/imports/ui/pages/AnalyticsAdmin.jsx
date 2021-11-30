@@ -7,6 +7,7 @@ import { _ } from 'meteor/underscore';
 import { UserStats } from '../../api/userStuffs/UserStats';
 import Analytics from '../components/Analytics';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
+import { UserRatings } from '../../api/userStuffs/UserRatings';
 import Inputs from '../components/Inputs';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -79,6 +80,7 @@ class AnalyticsAdmin extends React.Component {
 AnalyticsAdmin.propTypes = {
   stats: PropTypes.array.isRequired,
   inputs: PropTypes.array.isRequired,
+  ratings: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -87,14 +89,17 @@ export default withTracker(() => {
   // Get access to UserStats documents.
   const subscription = Meteor.subscribe(UserStats.adminPublicationName);
   const subscription2 = Meteor.subscribe(UserInputs.adminPublicationName);
+  const subscription3 = Meteor.subscribe(UserRatings.adminPublicationName);
   // Determine if the subscription is ready
-  const ready = subscription.ready() && subscription2.ready();
+  const ready = subscription.ready() && subscription2.ready() && subscription3.read();
   // Get the UserStats documents
   const stats = UserStats.collection.find({}).fetch();
   const inputs = UserInputs.collection.find({}).fetch();
+  const ratings = UserRatings.collection.find({}).fetch();
   return {
     stats,
     inputs,
+    ratings,
     ready,
   };
 })(AnalyticsAdmin);
