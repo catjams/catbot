@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Label, Icon, Header, Image, Grid, Button } from 'semantic-ui-react';
+import { Container, Label, Icon, Header, Image, Grid, Button, Popup, Input } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
@@ -38,6 +38,20 @@ class Landing extends React.Component {
                   <Button as={NavLink} color='blue' size='huge' className='pageLabel3' exact to="/sendfeedback" key='sendfeedback'>
                     <Icon name='reply'/> Send Feedback
                   </Button>
+                </Grid.Row>
+                <Grid.Row className="landingButtons">
+                  <Popup content='L' on='click' trigger={<Button color='blue' size='huge'><Icon name='thumbs up'/>Rate Your Experience</Button>}>
+                    <Grid columns={2}>
+                      <Grid.Column>
+                        <Button><Icon name='thumbs up'/></Button>
+                      </Grid.Column>
+                      <Grid.Column>
+                        <Button><Icon name='thumbs down'/></Button>
+                      </Grid.Column>
+                    </Grid>
+                    <Input placeholder='Add a comment' style={{ paddingBottom: '5px' }}/>
+                    <Button>Submit</Button>
+                  </Popup>
                 </Grid.Row>
               </Grid.Column>
             </Grid.Row>
