@@ -11,6 +11,14 @@ class NavBar {
     }
   }
 
+  async gotoTutorialPage(testController) {
+    await testController.click('#navbar-tutorial-page');
+  }
+
+  async gotoSendFeedbackPage(testController) {
+    await testController.click('#navbar-send-feedback-page');
+  }
+
   async gotoSigninPage(testController) {
     await this.ensureLogout(testController);
     await testController.click('#login-dropdown');
@@ -35,6 +43,22 @@ class NavBar {
     await this.ensureLogout(testController);
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
+  }
+
+  async gotoViewFeedbackPage(testController) {
+    await testController.click('#navbar-view-feedback-page');
+  }
+
+  async gotoAnalyticsPage(testController) {
+    await testController.click('#navbar-analytics-page');
+  }
+
+  async gotoAddIntentPage(testController) {
+    await testController.click('#navbar-add-intent-page');
+  }
+
+  async gotoListIntentPage(testController) {
+    await testController.click('#navbar-list-intent-page');
   }
 }
 
