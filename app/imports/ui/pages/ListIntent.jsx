@@ -17,7 +17,7 @@ class ListIntent extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container>
+      <Container id='list-intent-page'>
         <Header as="h2" textAlign="center">List Intent</Header>
         <Table celled>
           <Table.Header>

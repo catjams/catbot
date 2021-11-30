@@ -27,7 +27,7 @@ class AnalyticsAdmin extends React.Component {
     }
 
     return (
-      <Grid container={true}>
+      <Grid id='analytics-page' container={true}>
         <Grid.Row>
           <Header as="h1" textAlign="center">Bot Analytics</Header>
         </Grid.Row>

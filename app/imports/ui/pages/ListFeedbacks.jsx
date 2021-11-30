@@ -17,7 +17,7 @@ class ListFeedback extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container>
+      <Container id='view-feedback-page'>
         <Header as="h2" textAlign="center">List User Feedback</Header>
         <Table celled>
           <Table.Header>

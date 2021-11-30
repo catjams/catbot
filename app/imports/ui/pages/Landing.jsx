@@ -10,7 +10,7 @@ class Landing extends React.Component {
     const gridStyle = { height: '600px' };
     const { status } = this.state;
     return (
-      <div>
+      <div id='landing-page'>
         <div className='landingTop'>
           <Grid container columns={2} centered style={gridStyle}>
             <Grid.Row verticalAlign="middle">

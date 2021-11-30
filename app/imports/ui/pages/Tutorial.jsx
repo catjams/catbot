@@ -7,7 +7,7 @@ class Tutorial extends React.Component {
   // Render the page once subscriptions have been received.
   render() {
     return (
-      <div className='tutorial-background'>
+      <div id='tutorial-page' className='tutorial-background'>
         <Container>
 
           <Header as="h1" textAlign="center">Chatbot User Guide</Header>
