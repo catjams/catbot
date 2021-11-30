@@ -20,17 +20,23 @@ function parseInput(str) {
   return 'none';
 }
 
+function parseTime(str) {
+  return str.substring(0, str.length - 5);
+}
+
 function addUserStats({ textPayload, timestamp }) {
   const intent = parseIntent(textPayload);
+  const time = parseTime(timestamp);
   if (intent !== 'none') {
-    UserStats.collection.insert({ intent, timestamp });
+    UserStats.collection.insert({ intent, time });
   }
 }
 
 function addUserInputs({ textPayload, timestamp }) {
   const input = parseInput(textPayload);
+  const time = parseTime(timestamp);
   if (input !== 'none') {
-    UserInputs.collection.insert({ input, timestamp });
+    UserInputs.collection.insert({ input, time });
   }
 }
 
