@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { UserStats } from '../../api/userStats/UserStats';
+import { UserStats } from '../../api/userStuffs/UserStats';
 
 function parseIntent(text) {
   if (text.indexOf('intent_name') > 0) {

@@ -3,7 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { UserFeedbacks } from '../../api/userFeedback/UserFeedback';
 import { Intents } from '../../api/Intents/Intents';
 import { Survey } from '../../api/survey/Survey';
-import { UserStats } from '../../api/userStats/UserStats';
+import { UserStats } from '../../api/userStuffs/UserStats';
 
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.

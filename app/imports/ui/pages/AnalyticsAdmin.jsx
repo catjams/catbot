@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Grid } from 'semantic-ui-react';
+import { Header, Loader, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
-import { UserStats } from '../../api/userStats/UserStats';
+import { UserStats } from '../../api/userStuffs/UserStats';
 import Analytics from '../components/Analytics';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -17,7 +17,7 @@ class AnalyticsAdmin extends React.Component {
   renderPage() {
     const intents = _.pluck(this.props.stats, 'intent');
     const intentLabels = _.uniq(intents);
-    const intentsNum = Array(27).fill(0);
+    const intentsNum = Array(intentLabels.length).fill(0);
     for (let i = 0; i < intentLabels.length; i++) {
       for (let j = 0; j < intents.length; j++) {
         if (intentLabels[i] === intents[j]) {
