@@ -72,7 +72,7 @@ class AnalyticsAdmin extends React.Component {
     ];
 
     return (
-      <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+      <Tab id='analytics-page' menu={{ secondary: true, pointing: true }} panes={panes} />
     );
   }
 }
