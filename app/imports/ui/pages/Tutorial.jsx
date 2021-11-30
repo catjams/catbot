@@ -55,13 +55,13 @@ class Tutorial extends React.Component {
                 </Message>
               </Grid.Column>
               <Grid.Column verticalAlign='middle'>
-                <Image src='images/LandingButtons.png' size='huge' centered/>
+                <Image src='images/LandingButtons.png' size='huge' centered bordered/>
                 <Container style={{ marginTop: '15px' }}/>
-                <Image src='images/LandingSwap.png' size='huge' centered/>
+                <Image src='images/LandingSwap.png' size='huge' centered bordered/>
                 <Container style={{ marginTop: '15px' }}/>
-                <Image src='images/LandingPhone.png' size='huge' centered/>
+                <Image src='images/LandingPhone.png' size='huge' centered bordered/>
                 <Container style={{ marginTop: '15px' }}/>
-                <Image src='images/LandingContacts2.png' size='huge' centered/>
+                <Image src='images/LandingContacts2.png' size='huge' centered bordered/>
               </Grid.Column>
             </Grid.Row>
             <Header as="h2"><Icon name='chat'/>Chatbot</Header>
@@ -85,11 +85,11 @@ class Tutorial extends React.Component {
                 </Message>
               </Grid.Column>
               <Grid.Column>
-                <Image src='images/ChatbotImage.png' size='huge' centered/>
+                <Image src='images/ChatbotImage.png' size='huge' centered bordered/>
                 <Container style={{ marginTop: '15px' }}/>
-                <Image src='images/ChatbotTextOptions.png' size='huge' centered/>
+                <Image src='images/ChatbotTextOptions.png' size='huge' centered bordered/>
                 <Container style={{ marginTop: '15px' }}/>
-                <Image src='images/ChatbotResponse2.png' size='huge' centered/>
+                <Image src='images/ChatbotResponse2.png' size='huge' centered bordered/>
               </Grid.Column>
             </Grid.Row>
             <Header as="h2"><Icon name='wpforms'/> Send Feedback</Header>
@@ -110,11 +110,11 @@ class Tutorial extends React.Component {
                 </Message>
               </Grid.Column>
               <Grid.Column>
-                <Image src='images/feedback.png' size='huge' centered/>
+                <Image src='images/feedback.png' size='huge' centered bordered/>
                 <Container style={{ marginTop: '15px' }}/>
-                <Image src='images/FeedbackInfo.png' size='huge' centered/>
+                <Image src='images/FeedbackInfo.png' size='huge' centered bordered/>
                 <Container style={{ marginTop: '15px' }}/>
-                <Image src='images/feedbacksubmit.png' size='huge' centered/>
+                <Image src='images/feedbacksubmit.png' size='huge' centered bordered/>
                 <Container style={{ marginTop: '15px' }}/>
               </Grid.Column>
             </Grid.Row>
