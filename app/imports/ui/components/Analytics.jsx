@@ -15,8 +15,6 @@ import PropTypes from 'prop-types';
 class Analytics extends React.Component {
 
   render() {
-    console.log(this.props.intentLabels);
-    console.log(this.props.numbers);
     ChartJS.register(
       CategoryScale,
       LinearScale,

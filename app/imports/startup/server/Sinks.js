@@ -9,7 +9,7 @@ const logging = new Logging();
  */
 // const sinkName = 'Name of your sink, e.g. my-sink';
 
-const sink = logging.sink("idk");
+const sink = logging.sink('idk');
 
 async function printSinkMetadata() {
   // See https://googleapis.dev/nodejs/logging/latest/Sink.html#getMetadata
