@@ -3,9 +3,9 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, RadioField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { Survey } from '../../api/survey/Survey';
+import { UserRatings } from '../../api/userStuffs/userRatings';
 
-const bridge = new SimpleSchema2Bridge(Survey.schema);
+const bridge = new SimpleSchema2Bridge(UserRatings.schema);
 
 /** Renders the Page for adding a document. */
 class SendSurvey extends React.Component {
@@ -13,12 +13,12 @@ class SendSurvey extends React.Component {
   // On submit, insert the data.
   submit(data, formRef) {
     const { experience, bot, again, humanOrBot } = data;
-    Survey.collection.insert({ experience, bot, again, humanOrBot },
+    UserRatings.collection.insert({ experience, bot, again, humanOrBot },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Survey submitted successfully', 'success');
+          swal('Success', 'UserRatings submitted successfully', 'success');
           formRef.reset();
         }
       });

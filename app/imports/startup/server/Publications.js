@@ -2,8 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { UserFeedbacks } from '../../api/userFeedback/UserFeedback';
 import { Intents } from '../../api/Intents/Intents';
-import { Survey } from '../../api/survey/Survey';
+import { UserRatings } from '../../api/userStuffs/userRatings';
 import { UserStats } from '../../api/userStuffs/UserStats';
+import { UserInputs } from '../../api/userStuffs/UserInputs';
 
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
@@ -30,7 +31,14 @@ Meteor.publish(UserStats.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Survey.adminPublicationName, function () {
+Meteor.publish(UserInputs.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return UserInputs.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(UserRatings.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Intents.collection.find();
   }
