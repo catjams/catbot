@@ -1,12 +1,13 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid, Tab } from 'semantic-ui-react';
+import { Header, Loader, Grid, Tab, Container, Table } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { UserStats } from '../../api/userStuffs/UserStats';
 import Analytics from '../components/Analytics';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
+import Inputs from '../components/Inputs';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AnalyticsAdmin extends React.Component {
@@ -43,11 +44,29 @@ class AnalyticsAdmin extends React.Component {
       },
       {
         menuItem: 'User Responses',
-        render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>,
+        render: () => <Tab.Pane attached={false}>
+          <Container>
+            <Header as="h2" textAlign="center">List of User Responses</Header>
+            <Table celled>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Session</Table.HeaderCell>
+                  <Table.HeaderCell>Responses</Table.HeaderCell>
+                  <Table.HeaderCell>Time</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {this.props.inputs.map((input) => <Inputs key={input._id} input={input} UserInputs={UserInputs} />)}
+              </Table.Body>
+            </Table>
+          </Container>
+        </Tab.Pane>,
       },
       {
         menuItem: 'User Ratings',
-        render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane>,
+        render: () => <Tab.Pane attached={false}>
+          Tab 3 Content
+        </Tab.Pane>,
       },
     ];
 
