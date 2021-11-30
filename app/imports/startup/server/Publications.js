@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { UserFeedbacks } from '../../api/userFeedback/UserFeedback';
 import { Intents } from '../../api/Intents/Intents';
-import { Survey } from '../../api/survey/Survey';
+import { UserRatings } from '../../api/userStuffs/userRatings';
 import { UserStats } from '../../api/userStuffs/UserStats';
 
 // Admin-level publication.
@@ -30,7 +30,7 @@ Meteor.publish(UserStats.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Survey.adminPublicationName, function () {
+Meteor.publish(UserRatings.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Intents.collection.find();
   }

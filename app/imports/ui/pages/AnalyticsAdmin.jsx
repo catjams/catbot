@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid } from 'semantic-ui-react';
+import { Header, Loader, Grid, Tab } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -26,15 +26,32 @@ class AnalyticsAdmin extends React.Component {
       }
     }
 
+    const panes = [
+      {
+        menuItem: 'User Statistics',
+        render: () => <Tab.Pane attached={false}>
+          <Grid container={true}>
+            <Grid.Row>
+              <Header as="h1" textAlign="center">Bot Analytics</Header>
+            </Grid.Row>
+            <Grid.Row>
+              <Analytics intentLabels={intentLabels} numbers={intentsNum}/>
+            </Grid.Row>
+          </Grid>
+        </Tab.Pane>,
+      },
+      {
+        menuItem: 'User Responses',
+        render: () => <Tab.Pane attached={false}>Tab 2 Content</Tab.Pane>,
+      },
+      {
+        menuItem: 'User Ratings',
+        render: () => <Tab.Pane attached={false}>Tab 3 Content</Tab.Pane>,
+      },
+    ];
+
     return (
-      <Grid container={true}>
-        <Grid.Row>
-          <Header as="h1" textAlign="center">Bot Analytics</Header>
-        </Grid.Row>
-        <Grid.Row>
-          <Analytics intentLabels={intentLabels} numbers={intentsNum}/>
-        </Grid.Row>
-      </Grid>
+      <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
     );
   }
 }

@@ -3,17 +3,17 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The UserStatsCollection. It encapsulates state and variable values for stuff.
+ * The UserInputsCollection. It encapsulates state and variable values for stuff.
  */
-class UserStatsCollection {
+class UserInputsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'UserStatsCollection';
+    this.name = 'UserInputsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      intent: String,
+      input: String,
       timestamp: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
@@ -24,7 +24,7 @@ class UserStatsCollection {
 }
 
 /**
- * The singleton instance of the UserStatsCollection.
- * @type {UserStatsCollection}
+ * The singleton instance of the UserInputsCollection.
+ * @type {UserInputsCollection}
  */
-export const UserStats = new UserStatsCollection();
+export const UserInputs = new UserInputsCollection();
