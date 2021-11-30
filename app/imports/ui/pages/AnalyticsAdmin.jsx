@@ -7,7 +7,7 @@ import { _ } from 'meteor/underscore';
 import { UserStats } from '../../api/userStuffs/UserStats';
 import Analytics from '../components/Analytics';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
-import { UserRatings } from '../../api/userStuffs/UserRatings';
+import { UserRatings } from '../../api/userStuffs/userRatings';
 import Inputs from '../components/Inputs';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -91,7 +91,7 @@ export default withTracker(() => {
   const subscription2 = Meteor.subscribe(UserInputs.adminPublicationName);
   const subscription3 = Meteor.subscribe(UserRatings.adminPublicationName);
   // Determine if the subscription is ready
-  const ready = subscription.ready() && subscription2.ready() && subscription3.read();
+  const ready = subscription.ready() && subscription2.ready() && subscription3.ready();
   // Get the UserStats documents
   const stats = UserStats.collection.find({}).fetch();
   const inputs = UserInputs.collection.find({}).fetch();
