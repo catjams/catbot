@@ -15,14 +15,18 @@ class AnalyticsAdmin extends React.Component {
   }
 
   renderPage() {
-    const intents = _.uniq(_.pluck(this.props.stats, 'intent'));
+    const intents = _.pluck(this.props.stats, 'intent');
+    const intentLabels = _.uniq(intents);
+    for (let i = 0; i < intents.length; i++){
+
+    }
     return (
       <Grid container={true}>
         <Grid.Row>
-          <Header as="h2" textAlign="center">Chat Bot Effectiveness Ratings</Header>
+          <Header as="h1" textAlign="center">Intents distrubution ({intentLabels.length})</Header>
         </Grid.Row>
         <Grid.Row>
-          <Analytics intents={intents}/>
+          <Analytics intentLabels={intentLabels}/>
         </Grid.Row>
       </Grid>
     );

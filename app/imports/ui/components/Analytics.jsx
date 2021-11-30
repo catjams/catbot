@@ -1,50 +1,69 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
-import { Pie } from 'react-chartjs-2';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
 class Analytics extends React.Component {
 
   render() {
-    ChartJS.register(ArcElement, Tooltip, Legend);
+    ChartJS.register(
+      CategoryScale,
+      LinearScale,
+      BarElement,
+      Title,
+      Tooltip,
+      Legend,
+    );
+    const options = {
+      indexAxis: 'y',
+      elements: {
+        bar: {
+          borderWidth: 2,
+        },
+      },
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'right',
+        },
+        title: {
+          display: true,
+          text: 'Chart.js Horizontal Bar Chart',
+        },
+      },
+    };
+    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
     const data = {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels,
       datasets: [
         {
-          label: 'Number of Intents',
+          label: 'Dataset 1',
           data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-          ],
-          borderWidth: 1,
+          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
         },
       ],
     };
     return (
-        <Pie data={data}/>
+      <Bar data={data} options={options}/>
     );
   }
 }
 
 // Require a document to be passed to this component.
 Analytics.propTypes = {
-  intents: PropTypes.array.isRequired,
+  intentLabels: PropTypes.array.isRequired,
 };
 
 export default Analytics;
