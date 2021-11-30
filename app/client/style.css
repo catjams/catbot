@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
 .white-text{
   color: white;
 }
@@ -17,7 +19,7 @@
 .line {
   background-color: black;
   margin-bottom: 15px;
-  height: 1px;
+  height: 0.005rem;
 }
 
 .bottom {
@@ -46,7 +48,7 @@
 }
 
 p {
-  font-family: SansSerif, serif;
+  font-family: 'Poppins', serif;
   font-size: 17px;
 }
 
