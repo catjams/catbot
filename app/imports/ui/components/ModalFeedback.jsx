@@ -1,8 +1,9 @@
 import React from 'react';
 import { Modal, Header, Button } from 'semantic-ui-react';
 
-function ModalFeedback() {
+function ModalFeedback(feedbackInfo) {
   const [open, setOpen] = React.useState(false);
+
   return (
     <Modal
       onClose={() => setOpen(false)}
@@ -12,7 +13,11 @@ function ModalFeedback() {
     >
       <Header content='Feedback Details'/>
       <Modal.Content>
-        <p>Feedback information</p>
+        <p>Created At: {feedbackInfo.info.createdAt.toLocaleDateString('en-US')}</p>
+        <p>Contact Details: {feedbackInfo.info.contactDetails}</p>
+        <p>Summary: {feedbackInfo.info.summary}</p>
+        <p>Feedback Type: {feedbackInfo.info.feedbackType}</p>
+        <p>Description: {feedbackInfo.info.description}</p>
       </Modal.Content>
       <Modal.Actions>
         <Button
