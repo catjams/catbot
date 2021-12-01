@@ -3,12 +3,12 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The UserRatingCollection. It encapsulates state and variable values for stuff.
+ * The UserRatingsCollection. It encapsulates state and variable values for stuff.
  */
 class UserRatingsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'UserRatingCollection';
+    this.name = 'UserRatingsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -28,7 +28,7 @@ class UserRatingsCollection {
 }
 
 /**
- * The singleton instance of the UserRatingCollection.
+ * The singleton instance of the UserRatingsCollection.
  * @type {UserRatingsCollection}
  */
 export const UserRatings = new UserRatingsCollection();

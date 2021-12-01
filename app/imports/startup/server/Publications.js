@@ -40,7 +40,7 @@ Meteor.publish(UserInputs.adminPublicationName, function () {
 
 Meteor.publish(UserRatings.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Intents.collection.find();
+    return UserRatings.collection.find();
   }
   return this.ready();
 });

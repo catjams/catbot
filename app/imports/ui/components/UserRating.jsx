@@ -42,11 +42,8 @@ function UserRating() {
         </AutoForm>
       </Modal.Content>
       <Modal.Actions>
-        <Button color='black' onClick={() => setOpen(false)}>
-            Nope
-        </Button>
         <Button
-          content="Yep, that's me"
+          content="Done"
           labelPosition='right'
           icon='checkmark'
           onClick={() => setOpen(false)}
