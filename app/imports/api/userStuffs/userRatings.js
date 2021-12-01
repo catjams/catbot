@@ -15,20 +15,10 @@ class SurveyCollection {
     this.schema = new SimpleSchema({
       experience: {
         type: String,
-        allowedValues: ['Very satisfied', 'Satisfied', 'Neither satisfied nor dissatisfied', 'Dissatisfied', 'Very dissatisfied'],
+        allowedValues: ['like', 'dislike'],
       },
-      bot: {
-        type: String,
-        allowedValues: ['Very satisfied', 'Satisfied', 'Neither satisfied nor dissatisfied', 'Dissatisfied', 'Very dissatisfied'],
-      },
-      again: {
-        type: String,
-        allowedValues: ['Very satisfied', 'Satisfied', 'Neither satisfied nor dissatisfied', 'Dissatisfied', 'Very dissatisfied'],
-      },
-      humanOrBot: {
-        type: String,
-        allowedValues: ['Very satisfied', 'Satisfied', 'Neither satisfied nor dissatisfied', 'Dissatisfied', 'Very dissatisfied'],
-      },
+      comment: String,
+      createdAt: Date,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
