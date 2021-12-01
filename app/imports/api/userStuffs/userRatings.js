@@ -3,21 +3,21 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The SurveyCollection. It encapsulates state and variable values for stuff.
+ * The UserRatingCollection. It encapsulates state and variable values for stuff.
  */
-class SurveyCollection {
+class UserRatingsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'SurveyCollection';
+    this.name = 'UserRatingCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
+      comment: String,
       experience: {
         type: String,
         allowedValues: ['like', 'dislike'],
       },
-      comment: String,
       createdAt: Date,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
@@ -28,7 +28,7 @@ class SurveyCollection {
 }
 
 /**
- * The singleton instance of the SurveyCollection.
- * @type {SurveyCollection}
+ * The singleton instance of the UserRatingCollection.
+ * @type {UserRatingsCollection}
  */
-export const UserRatings = new SurveyCollection();
+export const UserRatings = new UserRatingsCollection();
