@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import FeedbackInfo from './FeedbackInfo';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
 class FeedBack extends React.Component {
@@ -14,8 +15,10 @@ class FeedBack extends React.Component {
         <Table.Cell>{this.props.feedback.contactDetails}</Table.Cell>
         <Table.Cell>{this.props.feedback.summary}</Table.Cell>
         <Table.Cell>{this.props.feedback.feedbackType}</Table.Cell>
-        <Table.Cell>{this.props.feedback.description}</Table.Cell>
         <Table.Cell>{this.props.feedback.createdAt.toLocaleDateString('en-US')}</Table.Cell>
+        <Table.Cell>
+          <FeedbackInfo/>
+        </Table.Cell>
         <Table.Cell>
           <Button icon onClick={() => this.removeFeedback(this.props.feedback._id)}>
             <Icon name='trash' />

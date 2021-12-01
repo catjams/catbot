@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Table, Header, Loader, Icon } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { UserFeedbacks } from '../../api/userFeedback/UserFeedback';
@@ -25,8 +25,8 @@ class ListFeedback extends React.Component {
               <Table.HeaderCell>Contact Details</Table.HeaderCell>
               <Table.HeaderCell>Summary</Table.HeaderCell>
               <Table.HeaderCell>Feedback Type</Table.HeaderCell>
-              <Table.HeaderCell>Description</Table.HeaderCell>
               <Table.HeaderCell>Created Date</Table.HeaderCell>
+              <Table.HeaderCell>Info</Table.HeaderCell>
               <Table.HeaderCell>Remove</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
