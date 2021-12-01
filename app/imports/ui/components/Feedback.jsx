@@ -1,9 +1,10 @@
 import React from 'react';
 import { Table, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import ModalFeedback from './ModalFeedback';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
-class FeedBack extends React.Component {
+class Feedback extends React.Component {
   removeFeedback(docID) {
     this.props.UserFeedbacks.collection.remove(docID);
   }
@@ -14,8 +15,10 @@ class FeedBack extends React.Component {
         <Table.Cell>{this.props.feedback.contactDetails}</Table.Cell>
         <Table.Cell>{this.props.feedback.summary}</Table.Cell>
         <Table.Cell>{this.props.feedback.feedbackType}</Table.Cell>
-        <Table.Cell>{this.props.feedback.description}</Table.Cell>
         <Table.Cell>{this.props.feedback.createdAt.toLocaleDateString('en-US')}</Table.Cell>
+        <Table.Cell>
+          <ModalFeedback info={this.props.feedback}/>
+        </Table.Cell>
         <Table.Cell>
           <Button icon onClick={() => this.removeFeedback(this.props.feedback._id)}>
             <Icon name='trash' />
@@ -27,7 +30,7 @@ class FeedBack extends React.Component {
 }
 
 // Require a document to be passed to this component.
-FeedBack.propTypes = {
+Feedback.propTypes = {
   feedback: PropTypes.shape({
     contactDetails: PropTypes.string,
     summary: PropTypes.string,
@@ -39,4 +42,4 @@ FeedBack.propTypes = {
   UserFeedbacks: PropTypes.object.isRequired,
 };
 
-export default FeedBack;
+export default Feedback;

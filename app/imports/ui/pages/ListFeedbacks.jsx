@@ -25,8 +25,8 @@ class ListFeedback extends React.Component {
               <Table.HeaderCell>Contact Details</Table.HeaderCell>
               <Table.HeaderCell>Summary</Table.HeaderCell>
               <Table.HeaderCell>Feedback Type</Table.HeaderCell>
-              <Table.HeaderCell>Description</Table.HeaderCell>
               <Table.HeaderCell>Created Date</Table.HeaderCell>
+              <Table.HeaderCell>Info</Table.HeaderCell>
               <Table.HeaderCell>Remove</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
