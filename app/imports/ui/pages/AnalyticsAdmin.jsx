@@ -9,7 +9,6 @@ import Analytics from '../components/Analytics';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import { UserRatings } from '../../api/userStuffs/userRatings';
 import Inputs from '../components/Inputs';
-import { UserRatingCard } from '../components/UserRatingCard';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AnalyticsAdmin extends React.Component {
