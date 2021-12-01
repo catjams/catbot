@@ -1,4 +1,6 @@
 # CatBot
+![ci-badge](https://github.com/catjams/catbot/workflows/ci-meteor-application-template-react/badge.svg)
+
 
 ## Installation
 1. Install [Node.js](https://nodejs.org/en/)
