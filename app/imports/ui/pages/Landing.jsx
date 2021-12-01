@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Label, Icon, Header, Image, Grid, Button } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import UserRating from '../components/UserRating';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -38,6 +39,9 @@ class Landing extends React.Component {
                   <Button as={NavLink} color='blue' size='huge' className='pageLabel3' exact to="/sendfeedback" key='sendfeedback'>
                     <Icon name='reply'/> Send Feedback
                   </Button>
+                </Grid.Row>
+                <Grid.Row className="landingButtons">
+                  <UserRating/>
                 </Grid.Row>
               </Grid.Column>
             </Grid.Row>
