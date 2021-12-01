@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid, Tab, Container, Table } from 'semantic-ui-react';
+import { Header, Loader, Grid, Tab, Container, Table, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -9,6 +9,7 @@ import Analytics from '../components/Analytics';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import { UserRatings } from '../../api/userStuffs/userRatings';
 import Inputs from '../components/Inputs';
+import { UserRatingCard } from '../components/UserRatingCard';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AnalyticsAdmin extends React.Component {
@@ -66,7 +67,10 @@ class AnalyticsAdmin extends React.Component {
       {
         menuItem: 'User Ratings',
         render: () => <Tab.Pane attached={false}>
-          Tab 3 Content
+          <Container>
+            <Card.Group>
+            </Card.Group>
+          </Container>
         </Tab.Pane>,
       },
     ];
