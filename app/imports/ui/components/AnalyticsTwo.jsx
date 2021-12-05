@@ -15,29 +15,20 @@ class AnalyticsTwo extends React.Component {
 
   render() {
     ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
-
-    const options = {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    };
-
     const data = {
       datasets: [
         {
           label: 'A dataset',
-          data: Array.from({ length: 100 }, () => ({
-            x: this.props.dateLabels,
-            y: this.props.numbers,
-          })),
+          data: {
+            labels: this.props.dateLabels,
+            datasets: this.props.numbers,
+          },
           backgroundColor: 'rgba(255, 99, 132, 1)',
         },
       ],
     };
     return (
-      <Scatter options={options} data={data} />
+      <Scatter data={data} />
     );
   }
 }

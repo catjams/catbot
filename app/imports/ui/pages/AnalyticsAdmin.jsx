@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid, Tab, Container, Table, Card } from 'semantic-ui-react';
+import { Header, Loader, Grid, Tab, Container, Table, Card, Statistic } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -46,6 +46,12 @@ class AnalyticsAdmin extends React.Component {
         menuItem: 'User Statistics',
         render: () => <Tab.Pane attached={false}>
           <Grid container={true}>
+            <Grid.Row>
+              <Statistic>
+                <Statistic.Value>{intents.length}</Statistic.Value>
+                <Statistic.Label>Total Number of Intents</Statistic.Label>
+              </Statistic>
+            </Grid.Row>
             <Grid.Row>
               <Header as="h1" textAlign="center">Bot Analytics</Header>
             </Grid.Row>
