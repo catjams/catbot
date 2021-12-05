@@ -55,7 +55,7 @@ class Analytics extends React.Component {
       ],
     };
     return (
-      <Bar data={data} options={options}/>
+      <Bar data={data} options={options} />
     );
   }
 }

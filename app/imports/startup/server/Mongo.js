@@ -42,7 +42,7 @@ function addUserInputs({ textPayload, timestamp, trace }) {
   }
 }
 
-if (Meteor.settings.loadAssetsFile && UserStats.collection.find().count() === 0) {
+if (Meteor.settings.loadAssetsFile && UserStats.collection.find().count() === 0 && UserInputs.collection.find().count() === 0) {
   const assetsFileName = 'data.json';
   // eslint-disable-next-line no-console
   console.log(`Loading data from private/${assetsFileName}`);

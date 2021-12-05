@@ -9,6 +9,7 @@ import Analytics from '../components/Analytics';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import { UserRatings } from '../../api/userStuffs/userRatings';
 import Inputs from '../components/Inputs';
+import AnalyticsTwo from '../components/AnalyticsTwo';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AnalyticsAdmin extends React.Component {
@@ -17,17 +18,28 @@ class AnalyticsAdmin extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  renderPage() {
-    const intents = _.pluck(this.props.stats, 'intent');
-    const intentLabels = _.uniq(intents);
-    const intentsNum = Array(intentLabels.length).fill(0);
-    for (let i = 0; i < intentLabels.length; i++) {
-      for (let j = 0; j < intents.length; j++) {
-        if (intentLabels[i] === intents[j]) {
-          intentsNum[i]++;
+  countFunction(subject, label) {
+    const arr = Array(label.length).fill(0);
+    for (let i = 0; i < label.length; i++) {
+      for (let j = 0; j < subject.length; j++) {
+        if (label[i] === subject[j]) {
+          arr[i]++;
         }
       }
     }
+    return arr;
+  }
+
+  renderPage() {
+    const intents = _.pluck(this.props.stats, 'intent');
+    const intentLabels = _.uniq(intents);
+    const intentsNum = this.countFunction(intents, intentLabels);
+
+    const dates = _.map(_.pluck(this.props.stats, 'time'), function (date) {
+      return date.substring(0, date.indexOf('T'));
+    });
+    const dateLabels = _.uniq(dates);
+    const datesNum = this.countFunction(dates, dateLabels);
 
     const panes = [
       {
@@ -39,6 +51,9 @@ class AnalyticsAdmin extends React.Component {
             </Grid.Row>
             <Grid.Row>
               <Analytics intentLabels={intentLabels} numbers={intentsNum}/>
+            </Grid.Row>
+            <Grid.Row>
+              <AnalyticsTwo dateLabels={dateLabels} numbers={datesNum}/>
             </Grid.Row>
           </Grid>
         </Tab.Pane>,
