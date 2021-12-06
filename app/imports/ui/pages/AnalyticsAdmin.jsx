@@ -46,10 +46,18 @@ class AnalyticsAdmin extends React.Component {
         menuItem: 'User Statistics',
         render: () => <Tab.Pane attached={false}>
           <Grid container={true}>
-            <Grid.Row>
+            <Grid.Row centered>
               <Statistic>
                 <Statistic.Value>{intents.length}</Statistic.Value>
                 <Statistic.Label>Total Number of Intents</Statistic.Label>
+              </Statistic>
+              <Statistic>
+                <Statistic.Value>{this.props.inputs.length}</Statistic.Value>
+                <Statistic.Label>Total Number of User Responses</Statistic.Label>
+              </Statistic>
+              <Statistic>
+                <Statistic.Value>{this.props.ratings.length}</Statistic.Value>
+                <Statistic.Label>Total Number of User Ratings</Statistic.Label>
               </Statistic>
             </Grid.Row>
             <Grid.Row>
