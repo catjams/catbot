@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid, Tab, Container, Table, Card, Statistic } from 'semantic-ui-react';
+import { Header, Loader, Grid, Tab, Container, Table, Card, Statistic, Icon } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -48,15 +48,15 @@ class AnalyticsAdmin extends React.Component {
           <Grid container={true}>
             <Grid.Row centered>
               <Statistic>
-                <Statistic.Value>{intents.length}</Statistic.Value>
+                <Statistic.Value><Icon name='talk'/> {intents.length}</Statistic.Value>
                 <Statistic.Label>Total Number of Intents</Statistic.Label>
               </Statistic>
               <Statistic>
-                <Statistic.Value>{this.props.inputs.length}</Statistic.Value>
+                <Statistic.Value><Icon name='users'/> {this.props.inputs.length}</Statistic.Value>
                 <Statistic.Label>Total Number of User Responses</Statistic.Label>
               </Statistic>
               <Statistic>
-                <Statistic.Value>{this.props.ratings.length}</Statistic.Value>
+                <Statistic.Value><Icon name='tasks'/> {this.props.ratings.length}</Statistic.Value>
                 <Statistic.Label>Total Number of User Ratings</Statistic.Label>
               </Statistic>
             </Grid.Row>
@@ -83,6 +83,7 @@ class AnalyticsAdmin extends React.Component {
                   <Table.HeaderCell>Session</Table.HeaderCell>
                   <Table.HeaderCell>Responses</Table.HeaderCell>
                   <Table.HeaderCell>Time</Table.HeaderCell>
+                  <Table.HeaderCell>Remove</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
