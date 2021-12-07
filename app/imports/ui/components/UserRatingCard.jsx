@@ -5,8 +5,14 @@ import PropTypes from 'prop-types';
 /** Component for layout out a Profile Card. */
 class UserRatingCard extends React.Component {
   render() {
+    let cardColor = null;
+    if (this.props.rating.experience === 'helpful') {
+      cardColor = 'green';
+    } else {
+      cardColor = 'red';
+    }
     return (
-      <Card>
+      <Card color={cardColor}>
         <Card.Content>
           <Card.Header>{this.props.rating.experience}</Card.Header>
           <Card.Description>
