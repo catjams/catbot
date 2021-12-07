@@ -42,6 +42,10 @@ class AnalyticsAdmin extends React.Component {
     const dateLabels = _.uniq(dates);
     const datesNum = this.countFunction(dates, dateLabels);
 
+    const userRatings = _.pluck(this.props.ratings, 'experience');
+    const ratingLabels = _.uniq(userRatings);
+    const ratingNum = this.countFunction(userRatings, ratingLabels);
+
     const panes = [
       {
         menuItem: 'User Statistics',
@@ -97,11 +101,23 @@ class AnalyticsAdmin extends React.Component {
       {
         menuItem: 'User Ratings',
         render: () => <Tab.Pane attached={false}>
-          <Container>
-            <Card.Group>
-              {this.props.ratings.map((rating) => <UserRatingCard key={rating._id} rating={rating}/>)}
-            </Card.Group>
-          </Container>
+          <Grid container={true}>
+            <Grid.Row>
+              <Statistic color='green'>
+                <Statistic.Value><Icon name='thumbs up'/>{ratingNum[0]}</Statistic.Value>
+                <Statistic.Label>Helpful</Statistic.Label>
+              </Statistic>
+              <Statistic color='red'>
+                <Statistic.Value><Icon name='thumbs down'/>{ratingNum[1]}</Statistic.Value>
+                <Statistic.Label>Not Helpful</Statistic.Label>
+              </Statistic>
+            </Grid.Row>
+            <Grid.Row>
+              <Card.Group>
+                {this.props.ratings.map((rating) => <UserRatingCard key={rating._id} rating={rating}/>)}
+              </Card.Group>
+            </Grid.Row>
+          </Grid>
         </Tab.Pane>,
       },
     ];
