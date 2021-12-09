@@ -42,9 +42,9 @@ class AnalyticsAdmin extends React.Component {
     const dateLabels = _.uniq(dates);
     const datesNum = this.countFunction(dates, dateLabels);
 
-    const userRatings = _.pluck(this.props.ratings, 'experience');
-    const ratingLabels = _.uniq(userRatings);
-    const ratingNum = this.countFunction(userRatings, ratingLabels);
+    const ratings = _.pluck(this.props.ratings, 'experience');
+    const ratingLabels = _.uniq(ratings);
+    const ratingNum = this.countFunction(ratings, ratingLabels);
 
     const panes = [
       {
@@ -114,7 +114,7 @@ class AnalyticsAdmin extends React.Component {
             </Grid.Row>
             <Grid.Row>
               <Card.Group>
-                {this.props.ratings.map((rating) => <UserRatingCard key={rating._id} rating={rating}/>)}
+                {this.props.ratings.map((rating) => <UserRatingCard key={rating._id} rating={rating} UserRatings={UserRatings}/>)}
               </Card.Group>
             </Grid.Row>
           </Grid>
