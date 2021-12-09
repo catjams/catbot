@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Header, Loader, Grid, Tab, Container, Table, Card, Statistic, Icon } from 'semantic-ui-react';
+import { Header, Loader, Grid, Tab, Container, Table, Card, Statistic, Icon, Dropdown } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -11,6 +11,12 @@ import { UserRatings } from '../../api/userStuffs/userRatings';
 import Inputs from '../components/Inputs';
 import AnalyticsTwo from '../components/AnalyticsTwo';
 import UserRatingCard from '../components/UserRatingCard';
+
+const options = [
+  { key: 1, text: 'All', value: 1 },
+  { key: 2, text: 'Helpful', value: 2 },
+  { key: 3, text: 'Not Helpful', value: 3 },
+];
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AnalyticsAdmin extends React.Component {
@@ -31,7 +37,22 @@ class AnalyticsAdmin extends React.Component {
     return arr;
   }
 
+  state = {}
+
+  handleChange = (e, { value }) => this.setState({ value })
+
+  filterRating(rating) {
+    if (this === 2) {
+      return rating.experience === 'helpful';
+    }
+    if (this === 3) {
+      return rating.experience === 'not helpful';
+    }
+    return rating.experience === 'helpful' || rating.experience === 'not helpful';
+  }
+
   renderPage() {
+    const { value } = this.state;
     const intents = _.pluck(this.props.stats, 'intent');
     const intentLabels = _.uniq(intents);
     const intentsNum = this.countFunction(intents, intentLabels);
@@ -104,17 +125,27 @@ class AnalyticsAdmin extends React.Component {
           <Grid container={true}>
             <Grid.Row>
               <Statistic color='green'>
-                <Statistic.Value><Icon name='thumbs up'/>{ratingNum[0]}</Statistic.Value>
+                <Statistic.Value><Icon name='thumbs up'/>{ratingNum[1]}</Statistic.Value>
                 <Statistic.Label>Helpful</Statistic.Label>
               </Statistic>
               <Statistic color='red'>
-                <Statistic.Value><Icon name='thumbs down'/>{ratingNum[1]}</Statistic.Value>
+                <Statistic.Value><Icon name='thumbs down'/>{ratingNum[0]}</Statistic.Value>
                 <Statistic.Label>Not Helpful</Statistic.Label>
               </Statistic>
+              <Grid.Column>
+                Filter
+                <Dropdown
+                  onChange={this.handleChange}
+                  options={options}
+                  placeholder='Choose an option'
+                  selection
+                  value={value}
+                />
+              </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Card.Group>
-                {this.props.ratings.map((rating) => <UserRatingCard key={rating._id} rating={rating} UserRatings={UserRatings}/>)}
+                {this.props.ratings.filter(this.filterRating, value).map((rating) => <UserRatingCard key={rating._id} rating={rating} UserRatings={UserRatings}/>)}
               </Card.Group>
             </Grid.Row>
           </Grid>
