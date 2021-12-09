@@ -25,6 +25,8 @@ class AnalyticsAdmin extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
+  state = {}
+
   countFunction(subject, label) {
     const arr = Array(label.length).fill(0);
     for (let i = 0; i < label.length; i++) {
@@ -36,8 +38,6 @@ class AnalyticsAdmin extends React.Component {
     }
     return arr;
   }
-
-  state = {}
 
   handleChange = (e, { value }) => this.setState({ value })
 
