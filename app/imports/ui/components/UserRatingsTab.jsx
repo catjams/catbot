@@ -14,12 +14,7 @@ const options = [
 ];
 
 /** Renders a table containing all of the UserFeedBack documents. Use <UserFeedBack> to render each row. */
-class UserStatsTab extends React.Component {
-
-  // If the subscription(s) have been received, render the page, otherwise show a loading icon.
-  render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-  }
+class UserRatingsTab extends React.Component {
 
   countFunction(subject, label) {
     const arr = Array(label.length).fill(0);
@@ -48,20 +43,21 @@ class UserStatsTab extends React.Component {
   }
 
   // Render the page once subscriptions have been received.
-  renderPage() {
+  render() {
     const ratings = _.pluck(this.props.ratings, 'experience');
     const ratingLabels = _.uniq(ratings);
     const ratingNum = this.countFunction(ratings, ratingLabels);
+    const displayNum = _.object(ratingLabels, ratingNum);
     const { value } = this.state;
     return (
       <Grid container={true}>
         <Grid.Row>
           <Statistic color='green'>
-            <Statistic.Value><Icon name='thumbs up'/>{ratingNum[1]}</Statistic.Value>
+            <Statistic.Value><Icon name='thumbs up'/>{displayNum.helpful}</Statistic.Value>
             <Statistic.Label>Helpful</Statistic.Label>
           </Statistic>
           <Statistic color='red'>
-            <Statistic.Value><Icon name='thumbs down'/>{ratingNum[0]}</Statistic.Value>
+            <Statistic.Value><Icon name='thumbs down'/>{displayNum['not helpful']}</Statistic.Value>
             <Statistic.Label>Not Helpful</Statistic.Label>
           </Statistic>
           <Grid.Column>
@@ -86,21 +82,9 @@ class UserStatsTab extends React.Component {
 }
 
 // Require an array of UserFeedBack documents in the props.
-UserStatsTab.propTypes = {
+UserRatingsTab.propTypes = {
   ratings: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-export default withTracker(() => {
-  // Get access to UserFeedBack documents.
-  const subscription = Meteor.subscribe(UserRatings.adminPublicationName);
-  // Determine if the subscription is ready
-  const ready = subscription.ready();
-  // Get the UserFeedBack documents
-  const ratings = UserRatings.collection.find({}).fetch();
-  return {
-    ratings,
-    ready,
-  };
-})(UserStatsTab);
+export default UserRatingsTab;
