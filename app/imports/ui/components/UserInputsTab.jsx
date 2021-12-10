@@ -24,14 +24,12 @@ class UserInputsTab extends React.Component {
   handleInputChange = (e, { value }) => this.setState({ value })
 
   filterResponse(str) {
-    return str.input.indexOf(this) > -1 || str.time.indexOf(this) > -1;
+    return str.input.indexOf(this) > -1 || str.time.indexOf(this) > -1 || str.session.indexOf(this) > -1;
   }
 
   // Render the page once subscriptions have been received.
   render() {
     const { value } = this.state;
-    console.log(value);
-    console.log(this.props.inputs[0]);
     return (
       <Container>
         <Header as="h2" textAlign="center">List of User Responses</Header>
