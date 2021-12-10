@@ -30,8 +30,6 @@ class UserInputsTab extends React.Component {
   // Render the page once subscriptions have been received.
   render() {
     const { value } = this.state;
-    console.log(value);
-    console.log(this.props.inputs[0]);
     return (
       <Container>
         <Header as="h2" textAlign="center">List of User Responses</Header>
