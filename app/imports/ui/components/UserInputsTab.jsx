@@ -1,23 +1,11 @@
 import React from 'react';
-import { Header, Table, Container, Input } from 'semantic-ui-react';
+import { Header, Table, Container, Input, Pagination } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import Inputs from './Inputs';
 
 /** Renders a table containing all of the UserFeedBack documents. Use <UserFeedBack> to render each row. */
 class UserInputsTab extends React.Component {
-
-  countFunction(subject, label) {
-    const arr = Array(label.length).fill(0);
-    for (let i = 0; i < label.length; i++) {
-      for (let j = 0; j < subject.length; j++) {
-        if (label[i] === subject[j]) {
-          arr[i]++;
-        }
-      }
-    }
-    return arr;
-  }
 
   state = { value: '' }
 
@@ -27,9 +15,14 @@ class UserInputsTab extends React.Component {
     return str.input.indexOf(this) > -1 || str.time.indexOf(this) > -1 || str.session.indexOf(this) > -1;
   }
 
+  handlePaginationChange = (e, { page }) => this.setState({ activePage: Math.ceil(page) });
+
   // Render the page once subscriptions have been received.
   render() {
     const { value } = this.state;
+    const page = 1;
+    const itemPerPage = 15;
+    const totalPage = Math.ceil(this.props.inputs.length / itemPerPage);
     return (
       <Container>
         <Header as="h2" textAlign="center">List of User Responses</Header>
@@ -51,6 +44,11 @@ class UserInputsTab extends React.Component {
             {this.props.inputs.filter(this.filterResponse, value).map((input) => <Inputs key={input._id} input={input} UserInputs={UserInputs} />)}
           </Table.Body>
         </Table>
+        <Pagination
+          activePage={page}
+          totalPages={totalPage}
+          onPageChange={this.handlePaginationChange}
+        />
       </Container>
     );
   }
