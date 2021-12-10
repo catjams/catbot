@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Table, Container } from 'semantic-ui-react';
+import { Header, Table, Container, Search } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import Inputs from './Inputs';
@@ -19,11 +19,25 @@ class UserInputsTab extends React.Component {
     return arr;
   }
 
+  state = {}
+
+  handleSearchChange = (e, { value }) => this.setState({ value })
+
+  filterResponse(str) {
+
+  }
+
   // Render the page once subscriptions have been received.
   render() {
+    const { value } = this.state;
+    console.log(value);
     return (
       <Container>
         <Header as="h2" textAlign="center">List of User Responses</Header>
+        <Search
+          onSearchChange={this.handleSearchChange}
+          value={value}
+        />
         <Table celled>
           <Table.Header>
             <Table.Row>
