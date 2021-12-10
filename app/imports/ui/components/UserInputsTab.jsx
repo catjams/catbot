@@ -9,7 +9,7 @@ class UserInputsTab extends React.Component {
 
   state = { value: '', activePage: 1 }
 
-  handleInputChange = (e, { value }) => this.setState({ value })
+  handleInputChange = (e, { value }) => this.setState({ value }, this.setState({ activePage: 1 }))
 
   filterResponse(str) {
     return str.input.indexOf(this) > -1 || str.time.indexOf(this) > -1 || str.session.indexOf(this) > -1;
@@ -32,6 +32,7 @@ class UserInputsTab extends React.Component {
           <Input focus
             icon='search'
             onChange={this.handleInputChange}
+            value={value}
             placeholder='Search...'
           />
         </Grid.Row>
@@ -51,7 +52,7 @@ class UserInputsTab extends React.Component {
           </Table.Body>
         </Table>
         <Grid.Row centered>
-          <Pagination centered
+          <Pagination
             activePage={activePage}
             totalPages={totalPage}
             onPageChange={this.handlePaginationChange}
