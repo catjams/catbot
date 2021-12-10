@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Table, Container, Input } from 'semantic-ui-react';
+import { Header, Table, Grid, Input, Pagination } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import Inputs from './Inputs';
@@ -7,37 +7,35 @@ import Inputs from './Inputs';
 /** Renders a table containing all of the UserFeedBack documents. Use <UserFeedBack> to render each row. */
 class UserInputsTab extends React.Component {
 
-  countFunction(subject, label) {
-    const arr = Array(label.length).fill(0);
-    for (let i = 0; i < label.length; i++) {
-      for (let j = 0; j < subject.length; j++) {
-        if (label[i] === subject[j]) {
-          arr[i]++;
-        }
-      }
-    }
-    return arr;
-  }
+  state = { value: '', activePage: 1 }
 
-  state = { value: '' }
-
-  handleInputChange = (e, { value }) => this.setState({ value })
+  handleInputChange = (e, { value }) => this.setState({ value }, this.setState({ activePage: 1 }))
 
   filterResponse(str) {
-    return str.input.indexOf(this) > -1 || str.time.indexOf(this) > -1;
+    return str.input.indexOf(this) > -1 || str.time.indexOf(this) > -1 || str.session.indexOf(this) > -1;
   }
+
+  handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
 
   // Render the page once subscriptions have been received.
   render() {
     const { value } = this.state;
+    const { activePage } = this.state;
+    const itemPerPage = 15;
+    const totalPage = Math.ceil(this.props.inputs.filter(this.filterResponse, value).length / itemPerPage);
     return (
-      <Container>
-        <Header as="h2" textAlign="center">List of User Responses</Header>
-        <Input focus
-          icon='search'
-          onChange={this.handleInputChange}
-          placeholder='Search...'
-        />
+      <Grid container={true}>
+        <Grid.Row>
+          <Header as="h2" textAlign="center">List of User Responses</Header>
+        </Grid.Row>
+        <Grid.Row>
+          <Input focus
+            icon='search'
+            onChange={this.handleInputChange}
+            value={value}
+            placeholder='Search...'
+          />
+        </Grid.Row>
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -48,10 +46,19 @@ class UserInputsTab extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.inputs.filter(this.filterResponse, value).map((input) => <Inputs key={input._id} input={input} UserInputs={UserInputs} />)}
+            {this.props.inputs.filter(this.filterResponse, value)
+              .slice((activePage - 1) * itemPerPage, (activePage - 1) * itemPerPage + itemPerPage)
+              .map((input) => <Inputs key={input._id} input={input} UserInputs={UserInputs} />)}
           </Table.Body>
         </Table>
-      </Container>
+        <Grid.Row centered>
+          <Pagination
+            activePage={activePage}
+            totalPages={totalPage}
+            onPageChange={this.handlePaginationChange}
+          />
+        </Grid.Row>
+      </Grid>
     );
   }
 }
