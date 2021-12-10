@@ -13,7 +13,7 @@ class UserRatingsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      comment: String,
+      comment: { type: String, optional: true },
       experience: {
         type: String,
         allowedValues: ['helpful', 'not helpful'],

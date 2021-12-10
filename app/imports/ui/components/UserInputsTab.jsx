@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Table, Container, Search } from 'semantic-ui-react';
+import { Header, Table, Container, Input } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import Inputs from './Inputs';
@@ -21,7 +21,7 @@ class UserInputsTab extends React.Component {
 
   state = {}
 
-  handleSearchChange = (e, { value }) => this.setState({ value })
+  handleInputChange = (e, { value }) => this.setState({ value })
 
   filterResponse(str) {
 
@@ -31,12 +31,14 @@ class UserInputsTab extends React.Component {
   render() {
     const { value } = this.state;
     console.log(value);
+    console.log(this.props.inputs[0]);
     return (
       <Container>
         <Header as="h2" textAlign="center">List of User Responses</Header>
-        <Search
-          onSearchChange={this.handleSearchChange}
-          value={value}
+        <Input focus
+          icon='search'
+          onChange={this.handleInputChange}
+          placeholder='Search...'
         />
         <Table celled>
           <Table.Header>
