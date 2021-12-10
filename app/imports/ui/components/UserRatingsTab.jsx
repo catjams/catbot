@@ -1,7 +1,5 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Loader, Grid, Statistic, Icon, Dropdown, Card } from 'semantic-ui-react';
-import { withTracker } from 'meteor/react-meteor-data';
+import { Grid, Statistic, Icon, Dropdown, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import UserRatingCard from './UserRatingCard';
