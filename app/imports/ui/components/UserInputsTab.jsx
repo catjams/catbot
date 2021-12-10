@@ -19,12 +19,12 @@ class UserInputsTab extends React.Component {
     return arr;
   }
 
-  state = {}
+  state = { value: '' }
 
   handleInputChange = (e, { value }) => this.setState({ value })
 
   filterResponse(str) {
-
+    return str.input.indexOf(this) > -1 || str.time.indexOf(this) > -1;
   }
 
   // Render the page once subscriptions have been received.
@@ -50,7 +50,7 @@ class UserInputsTab extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.inputs.map((input) => <Inputs key={input._id} input={input} UserInputs={UserInputs} />)}
+            {this.props.inputs.filter(this.filterResponse, value).map((input) => <Inputs key={input._id} input={input} UserInputs={UserInputs} />)}
           </Table.Body>
         </Table>
       </Container>
