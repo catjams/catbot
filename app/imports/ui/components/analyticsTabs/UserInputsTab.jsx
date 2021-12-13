@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header, Table, Grid, Input, Pagination } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { UserInputs } from '../../api/userStuffs/UserInputs';
-import Inputs from './Inputs';
+import { UserInputs } from '../../../api/userStuffs/UserInputs';
+import Inputs from '../Inputs';
 
 /** Renders a table containing all of the UserFeedBack documents. Use <UserFeedBack> to render each row. */
 class UserInputsTab extends React.Component {

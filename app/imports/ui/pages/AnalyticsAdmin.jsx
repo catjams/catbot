@@ -6,9 +6,9 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import { UserRatings } from '../../api/userStuffs/userRatings';
 import { UserStats } from '../../api/userStuffs/UserStats';
-import UserStatsTab from '../components/UserStatsTab';
-import UserInputsTab from '../components/UserInputsTab';
-import UserRatingsTab from '../components/UserRatingsTab';
+import UserStatsTab from '../components/analyticsTabs/UserStatsTab';
+import UserInputsTab from '../components/analyticsTabs/UserInputsTab';
+import UserRatingsTab from '../components/analyticsTabs/UserRatingsTab';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AnalyticsAdmin extends React.Component {
