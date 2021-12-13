@@ -2,10 +2,18 @@ import React from 'react';
 import { Table, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import ModalFeedback from './ModalFeedback';
+import { AdminActivities } from '../../api/adminActivities/AdminActivities';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
 class Feedback extends React.Component {
   removeFeedback(docID) {
+    AdminActivities.collection.insert({
+      accountName: 'admin',
+      action: 'removed',
+      type: 'user feedback',
+      id: docID,
+      createdAt: new Date(),
+    });
     this.props.UserFeedbacks.collection.remove(docID);
   }
 
