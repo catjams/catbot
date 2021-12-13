@@ -1,10 +1,18 @@
 import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import { AdminActivities } from '../../api/adminActivities/AdminActivities';
 
 /** Component for layout out a Profile Card. */
 class UserRatingCard extends React.Component {
   removeRating(docID) {
+    AdminActivities.collection.insert({
+      accountName: 'admin',
+      action: 'removed',
+      type: 'user rating card',
+      id: docID,
+      createdAt: new Date(),
+    });
     this.props.UserRatings.collection.remove(docID);
   }
 

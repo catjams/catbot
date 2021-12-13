@@ -3,9 +3,7 @@ import { Tab, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import { UserInputs } from '../../api/userStuffs/UserInputs';
-import { UserRatings } from '../../api/userStuffs/UserRatings';
-import { UserStats } from '../../api/userStuffs/UserStats';
+import { AdminActivities } from '../../api/adminActivities/AdminActivities';
 import AddAccountTab from '../components/adminTabs/AddAccountTab';
 import ActivityFeedTab from '../components/adminTabs/ActivityFeedTab';
 import ViewAccountTab from '../components/adminTabs/ViewAccountTab';
@@ -21,7 +19,7 @@ class AdminPage extends React.Component {
 
     const panes = [
       { menuItem: 'Activity Feed', render: () => <Tab.Pane>
-        <ActivityFeedTab/>
+        {this.props.activities.map((activity) => <ActivityFeedTab key={activity._id} actvity={activity}/>)}
       </Tab.Pane> },
       { menuItem: 'Add New Admin Account', render: () => <Tab.Pane style={{ textAlign: 'center' }} >
         <div>
@@ -40,27 +38,19 @@ class AdminPage extends React.Component {
 
 }
 AdminPage.propTypes = {
-  stats: PropTypes.array.isRequired,
-  inputs: PropTypes.array.isRequired,
-  ratings: PropTypes.array.isRequired,
+  activities: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 export default withTracker(() => {
-  // Get access to UserStats documents.
-  const subscription = Meteor.subscribe(UserStats.adminPublicationName);
-  const subscription2 = Meteor.subscribe(UserInputs.adminPublicationName);
-  const subscription3 = Meteor.subscribe(UserRatings.adminPublicationName);
+  // Get access to UserFeedBack documents.
+  const subscription = Meteor.subscribe(AdminActivities.adminPublicationName);
   // Determine if the subscription is ready
-  const ready = subscription.ready() && subscription2.ready() && subscription3.ready();
-  // Get the UserStats documents
-  const stats = UserStats.collection.find({}).fetch();
-  const inputs = UserInputs.collection.find({}).fetch();
-  const ratings = UserRatings.collection.find({}).fetch();
+  const ready = subscription.ready();
+  // Get the UserFeedBack documents
+  const activities = AdminActivities.collection.find({}).fetch();
   return {
-    stats,
-    inputs,
-    ratings,
+    activities,
     ready,
   };
 })(AdminPage);
