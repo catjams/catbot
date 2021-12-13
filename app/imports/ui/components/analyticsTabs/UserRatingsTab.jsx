@@ -3,7 +3,7 @@ import { Grid, Statistic, Icon, Dropdown, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import UserRatingCard from '../UserRatingCard';
-import { UserRatings } from '../../../api/userStuffs/userRatings';
+import { UserRatings } from '../../../api/userStuffs/UserRatings';
 
 const options = [
   { key: 1, text: 'All', value: 1 },

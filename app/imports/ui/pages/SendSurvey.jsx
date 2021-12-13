@@ -3,7 +3,7 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, RadioField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { UserRatings } from '../../api/userStuffs/userRatings';
+import { UserRatings } from '../../api/userStuffs/UserRatings';
 
 const bridge = new SimpleSchema2Bridge(UserRatings.schema);
 

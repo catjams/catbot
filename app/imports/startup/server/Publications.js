@@ -2,9 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { UserFeedbacks } from '../../api/userFeedback/UserFeedback';
 import { Intents } from '../../api/Intents/Intents';
-import { UserRatings } from '../../api/userStuffs/userRatings';
+import { UserRatings } from '../../api/userStuffs/UserRatings';
 import { UserStats } from '../../api/userStuffs/UserStats';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
+import { AdminActivities } from '../../api/adminActivities/AdminActivities';
 
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
@@ -41,6 +42,13 @@ Meteor.publish(UserInputs.adminPublicationName, function () {
 Meteor.publish(UserRatings.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return UserRatings.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(AdminActivities.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return AdminActivities.collection.find();
   }
   return this.ready();
 });

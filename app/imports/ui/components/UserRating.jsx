@@ -3,7 +3,7 @@ import { Button, Modal, Icon } from 'semantic-ui-react';
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, HiddenField, RadioField, SubmitField, TextField } from 'uniforms-semantic';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { UserRatings } from '../../api/userStuffs/userRatings';
+import { UserRatings } from '../../api/userStuffs/UserRatings';
 
 const bridge = new SimpleSchema2Bridge(UserRatings.schema);
 
