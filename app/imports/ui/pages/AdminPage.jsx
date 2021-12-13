@@ -1,12 +1,12 @@
 import React from 'react';
-import { Tab, Loader, Button } from 'semantic-ui-react';
+import { Tab, Loader } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import { NavLink } from 'react-router-dom';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import { UserRatings } from '../../api/userStuffs/UserRatings';
 import { UserStats } from '../../api/userStuffs/UserStats';
+import { AddAccountTab } from '../components/adminTabs/AddAccountTab';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AdminPage extends React.Component {
@@ -20,9 +20,7 @@ class AdminPage extends React.Component {
     const panes = [
       { menuItem: 'Activity Feed', render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> },
       { menuItem: 'Add New Admin Account', render: () => <Tab.Pane style={{ textAlign: 'center' }} >
-        <Button style={{ marginTop: '30px' }} as={NavLink} color='grey' size='small' className='pageLabel3' exact to="/signup" key='signup'>
-          Add a new admin account here!
-        </Button>
+        <AddAccountTab/>
       </Tab.Pane> },
       { menuItem: 'View All Accounts', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
     ];
