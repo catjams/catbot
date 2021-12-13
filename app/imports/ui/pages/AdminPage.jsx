@@ -6,7 +6,9 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import { UserRatings } from '../../api/userStuffs/UserRatings';
 import { UserStats } from '../../api/userStuffs/UserStats';
-import { AddAccountTab } from '../components/adminTabs/AddAccountTab';
+import AddAccountTab from '../components/adminTabs/AddAccountTab';
+import ActivityFeedTab from '../components/adminTabs/ActivityFeedTab';
+import ViewAccountTab from '../components/adminTabs/ViewAccountTab';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AdminPage extends React.Component {
@@ -18,11 +20,17 @@ class AdminPage extends React.Component {
   renderPage() {
 
     const panes = [
-      { menuItem: 'Activity Feed', render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> },
-      { menuItem: 'Add New Admin Account', render: () => <Tab.Pane style={{ textAlign: 'center' }} >
-        <AddAccountTab/>
+      { menuItem: 'Activity Feed', render: () => <Tab.Pane>
+        <ActivityFeedTab/>
       </Tab.Pane> },
-      { menuItem: 'View All Accounts', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
+      { menuItem: 'Add New Admin Account', render: () => <Tab.Pane style={{ textAlign: 'center' }} >
+        <div>
+          <AddAccountTab/>
+        </div>
+      </Tab.Pane> },
+      { menuItem: 'View All Accounts', render: () => <Tab.Pane>
+        <ViewAccountTab/>
+      </Tab.Pane> },
     ];
 
     return (
