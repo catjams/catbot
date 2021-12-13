@@ -1,9 +1,12 @@
 import React from 'react';
+import { Feed } from 'semantic-ui-react';
 
 class ActivityFeedTab extends React.Component {
   render() {
     return (
-      <div>Tab 1 content</div>
+      <Feed>
+        <Feed.Content>Hi</Feed.Content>
+      </Feed>
     );
   }
 }
