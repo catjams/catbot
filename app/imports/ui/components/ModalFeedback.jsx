@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Header, Button } from 'semantic-ui-react';
+import { Modal, Header, Button, Icon } from 'semantic-ui-react';
 
 function ModalFeedback(feedbackInfo) {
   const [open, setOpen] = React.useState(false);
@@ -13,11 +13,20 @@ function ModalFeedback(feedbackInfo) {
     >
       <Header content='Feedback Details'/>
       <Modal.Content>
-        <p>Created At: {feedbackInfo.info.createdAt.toLocaleDateString('en-US')}</p>
-        <p>Contact Details: {feedbackInfo.info.contactDetails}</p>
-        <p>Summary: {feedbackInfo.info.summary}</p>
-        <p>Feedback Type: {feedbackInfo.info.feedbackType}</p>
-        <p>Description: {feedbackInfo.info.description}</p>
+        <Modal.Description>
+          <Header><Icon name='user circle'/>
+              Contact Details: {feedbackInfo.info.contactDetails}
+          </Header>
+          <Header as='h3'>Summary: </Header>
+          <p>{feedbackInfo.info.summary}</p>
+          <Header as='h3'>Feedback Type: </Header>
+          <p>{feedbackInfo.info.feedbackType}</p>
+          <Header as='h3'>Description: </Header>
+          <p>{feedbackInfo.info.description}</p>
+          <Header as='h4' disabled>
+              Created At: {feedbackInfo.info.createdAt.toLocaleDateString('en-US')}
+          </Header>
+        </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
         <Button
