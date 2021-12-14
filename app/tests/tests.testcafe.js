@@ -8,6 +8,7 @@ import { listIntentPage } from './listIntent.page';
 import { signinPage } from './signin.page';
 import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
+import { adminPage } from './admin.page';
 
 /* global fixture:false, test:false */
 
@@ -29,6 +30,7 @@ test('Test that tutorial page shows up', async (testController) => {
 test('Test that send feedback shows up', async (testController) => {
   await navBar.gotoSendFeedbackPage(testController);
   await sendFeedbackPage.isDisplayed(testController);
+  await sendFeedbackPage.addFeedback(testController);
 });
 
 test('Test that signin and signout work', async (testController) => {
@@ -37,6 +39,13 @@ test('Test that signin and signout work', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
+});
+
+test('Test that the admin page works', async (testController) => {
+  await navBar.gotoSigninPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoAdminPage(testController);
+  await adminPage.isDisplayed(testController);
 });
 
 test('Test that view feedback works', async (testController) => {
@@ -59,6 +68,7 @@ test('Test that add intent works', async (testController) => {
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoAddIntentPage(testController);
   await addIntentPage.isDisplayed(testController);
+  await addIntentPage.addIntent(testController);
 });
 
 test('Test that list intent works', async (testController) => {

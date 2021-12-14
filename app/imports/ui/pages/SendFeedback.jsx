@@ -33,11 +33,11 @@ class SendFeedback extends React.Component {
           <Header as="h2" textAlign="center">Send Feedback</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField name='contactDetails'/>
-              <TextField name='summary'/>
-              <SelectField name='feedbackType'/>
-              <LongTextField name='description'/>
-              <SubmitField value='Submit'/>
+              <TextField id='contactDetails' name='contactDetails'/>
+              <TextField id='summary' name='summary'/>
+              <SelectField id='feedbackType' name='feedbackType'/>
+              <LongTextField id='description' name='description'/>
+              <SubmitField id='submit' value='Submit'/>
               <ErrorsField/>
               <HiddenField name='createdAt' value={new Date()}/>
             </Segment>

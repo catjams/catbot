@@ -43,10 +43,10 @@ class AddIntent extends React.Component {
           <Header as="h2" textAlign="center">Add Intent</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField name='name'/>
-              <TextField name='phrase'/>
-              <TextField name='response'/>
-              <SubmitField value='Submit'/>
+              <TextField id='name' name='name'/>
+              <TextField id='phrase' name='phrase'/>
+              <TextField id='response' name='response'/>
+              <SubmitField id='Submit' value='#submit'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>

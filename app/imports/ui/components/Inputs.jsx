@@ -1,10 +1,18 @@
 import React from 'react';
 import { Table, Button, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import { AdminActivities } from '../../api/adminActivities/AdminActivities';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
 class Input extends React.Component {
   removeInput(docID) {
+    AdminActivities.collection.insert({
+      accountName: 'admin',
+      action: 'removed',
+      type: 'user response',
+      id: docID,
+      createdAt: new Date(),
+    });
     this.props.UserInputs.collection.remove(docID);
   }
 

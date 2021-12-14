@@ -45,6 +45,10 @@ class NavBar {
     await testController.click('#login-dropdown-sign-up');
   }
 
+  async gotoAdminPage(testController) {
+    await testController.click('#navbar-admin-page');
+  }
+
   async gotoViewFeedbackPage(testController) {
     await testController.click('#navbar-view-feedback-page');
   }
