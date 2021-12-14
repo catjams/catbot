@@ -16,7 +16,7 @@ class AdminActivitiesCollection {
       accountName: String,
       action: String,
       type: String,
-      catergoy: String,
+      id: String,
       createdAt: Date,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
