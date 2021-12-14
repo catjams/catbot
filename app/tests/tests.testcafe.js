@@ -42,7 +42,7 @@ test('Test that signin and signout work', async (testController) => {
 });
 
 test('Test that the admin page works', async (testController) => {
-  await navBar.gotoAdminPage(testController);
+  await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoAdminPage(testController);
   await adminPage.isDisplayed(testController);

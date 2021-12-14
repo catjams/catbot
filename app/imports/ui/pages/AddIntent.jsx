@@ -46,7 +46,7 @@ class AddIntent extends React.Component {
               <TextField id='name' name='name'/>
               <TextField id='phrase' name='phrase'/>
               <TextField id='response' name='response'/>
-              <SubmitField value='#Submit'/>
+              <SubmitField id='Submit' value='#submit'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>

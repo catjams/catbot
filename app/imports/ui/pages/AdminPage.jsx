@@ -32,7 +32,7 @@ class AdminPage extends React.Component {
     ];
 
     return (
-      <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+      <Tab id='admin-page' menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
     );
   }
 
