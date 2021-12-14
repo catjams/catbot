@@ -16,7 +16,7 @@ class UserRatingsCollection {
       comment: { type: String, optional: true },
       experience: {
         type: String,
-        allowedValues: ['helpful', 'not helpful'],
+        allowedValues: ['Helpful', 'Not helpful'],
       },
       createdAt: Date,
     }, { tracker: Tracker });

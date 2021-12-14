@@ -31,7 +31,7 @@ function UserRating() {
       open={open}
       trigger={<Button color='blue' size='huge'><Icon name='thumbs up'/>Rate Your Experience</Button>}
     >
-      <Modal.Header>Please rate your experience about today!</Modal.Header>
+      <Modal.Header>Please rate your experience!</Modal.Header>
       <Modal.Content>
         <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} >
           <RadioField name='experience' />
