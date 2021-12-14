@@ -8,6 +8,7 @@ class Account extends React.Component {
     return (
       <Table.Row>
         <Table.Cell>{this.props.account.username}</Table.Cell>
+        <Table.Cell>{this.props.account.email}</Table.Cell>
         <Table.Cell>{this.props.account.password}</Table.Cell>
       </Table.Row>
     );
@@ -18,6 +19,7 @@ class Account extends React.Component {
 Account.propTypes = {
   account: PropTypes.shape({
     username: PropTypes.string,
+    email: PropTypes.string,
     password: PropTypes.string,
   }).isRequired,
 };

@@ -20,6 +20,7 @@ class ViewAccountTab extends React.Component {
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Username</Table.HeaderCell>
+              <Table.HeaderCell>Email</Table.HeaderCell>
               <Table.HeaderCell>Password</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
