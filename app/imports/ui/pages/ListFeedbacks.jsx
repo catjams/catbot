@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Table, Header, Loader, Input, Pagination } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { UserFeedbacks } from '../../api/userFeedback/UserFeedback';
@@ -14,11 +14,31 @@ class ListFeedback extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
+  state = { value: '', activePage: 1 }
+
+  handleInputChange = (e, { value }) => this.setState({ value }, this.setState({ activePage: 1 }))
+
+  filterResponse(str) {
+    return str.contactDetails.indexOf(this) > -1 || str.summary.indexOf(this) > -1 || str.feedbackType.indexOf(this) > -1 || str.createdAt.toLocaleDateString('en-US').indexOf(this) > -1;
+  }
+
+  handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
+
   // Render the page once subscriptions have been received.
   renderPage() {
+    const { value } = this.state;
+    const { activePage } = this.state;
+    const itemPerPage = 10;
+    const totalPage = Math.ceil(this.props.feedbacks.filter(this.filterResponse, value).length / itemPerPage);
     return (
       <Container id='view-feedback-page'>
         <Header as="h2" textAlign="center">List User Feedback</Header>
+        <Input focus
+          icon='search'
+          onChange={this.handleInputChange}
+          value={value}
+          placeholder='Search...'
+        />
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -31,9 +51,11 @@ class ListFeedback extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.feedbacks.map((feedback) => <Feedback key={feedback._id} feedback={feedback} UserFeedbacks={UserFeedbacks} />)}
+            {/* eslint-disable-next-line max-len */}
+            {this.props.feedbacks.filter(this.filterResponse, value).slice((activePage - 1) * itemPerPage, (activePage - 1) * itemPerPage + itemPerPage).map((feedback) => <Feedback key={feedback._id} feedback={feedback} UserFeedbacks={UserFeedbacks} />)}
           </Table.Body>
         </Table>
+        <Pagination activePage={activePage} totalPages={totalPage} onPageChange={this.handlePaginationChange}/>
       </Container>
     );
   }
