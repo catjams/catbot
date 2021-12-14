@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, Modal, Icon } from 'semantic-ui-react';
 import swal from 'sweetalert';
-import { AutoForm, ErrorsField, HiddenField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, HiddenField, RadioField, SubmitField, TextField } from 'uniforms-semantic';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { UserRatings } from '../../api/userStuffs/userRatings';
+import { UserRatings } from '../../api/userStuffs/UserRatings';
 
 const bridge = new SimpleSchema2Bridge(UserRatings.schema);
 
@@ -34,8 +34,8 @@ function UserRating() {
       <Modal.Header>Please rate your experience about today!</Modal.Header>
       <Modal.Content>
         <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} >
+          <RadioField name='experience' />
           <TextField name='comment'/>
-          <SelectField name='experience' />
           <SubmitField value='Submit'/>
           <ErrorsField/>
           <HiddenField name='createdAt' value={new Date()}/>
@@ -43,9 +43,9 @@ function UserRating() {
       </Modal.Content>
       <Modal.Actions>
         <Button
-          content="Done"
+          content="Close"
           labelPosition='right'
-          icon='checkmark'
+          icon='close'
           onClick={() => setOpen(false)}
           positive
         />

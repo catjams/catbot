@@ -6,12 +6,9 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { UserInputs } from '../../api/userStuffs/UserInputs';
 import { UserRatings } from '../../api/userStuffs/UserRatings';
 import { UserStats } from '../../api/userStuffs/UserStats';
-import UserStatsTab from '../components/analyticsTabs/UserStatsTab';
-import UserInputsTab from '../components/analyticsTabs/UserInputsTab';
-import UserRatingsTab from '../components/analyticsTabs/UserRatingsTab';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class AnalyticsAdmin extends React.Component {
+class AdminPage extends React.Component {
 
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -20,33 +17,18 @@ class AnalyticsAdmin extends React.Component {
   renderPage() {
 
     const panes = [
-      {
-        menuItem: 'User Statistics',
-        render: () => <Tab.Pane attached={false}>
-          <UserStatsTab stats={this.props.stats} inputs={this.props.inputs} ratings={this.props.ratings}/>
-        </Tab.Pane>,
-      },
-      {
-        menuItem: 'User Responses',
-        render: () => <Tab.Pane attached={false}>
-          <UserInputsTab inputs={this.props.inputs}/>
-        </Tab.Pane>,
-      },
-      {
-        menuItem: 'User Ratings',
-        render: () => <Tab.Pane attached={false}>
-          <UserRatingsTab ratings={this.props.ratings}/>
-        </Tab.Pane>,
-      },
+      { menuItem: 'Activity Feed', render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> },
+      { menuItem: 'Add New Admin Account', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
+      { menuItem: 'View All Accounts', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
     ];
 
     return (
-      <Tab id='analytics-page' menu={{ secondary: true, pointing: true }} panes={panes} />
+      <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
     );
   }
 
 }
-AnalyticsAdmin.propTypes = {
+AdminPage.propTypes = {
   stats: PropTypes.array.isRequired,
   inputs: PropTypes.array.isRequired,
   ratings: PropTypes.array.isRequired,
@@ -70,4 +52,4 @@ export default withTracker(() => {
     ratings,
     ready,
   };
-})(AnalyticsAdmin);
+})(AdminPage);

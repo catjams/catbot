@@ -3,21 +3,20 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The UserRatingsCollection. It encapsulates state and variable values for stuff.
+ * The AdminActivities Collection. It stores intents for the chatbot.
  */
-class UserRatingsCollection {
+class AdminActivitiesCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'UserRatingsCollection';
+    this.name = 'AdminActivitiesCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      comment: { type: String, optional: true },
-      experience: {
-        type: String,
-        allowedValues: ['helpful', 'not helpful'],
-      },
+      accountName: String,
+      action: String,
+      type: String,
+      catergoy: String,
       createdAt: Date,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
@@ -28,7 +27,7 @@ class UserRatingsCollection {
 }
 
 /**
- * The singleton instance of the UserRatingsCollection.
- * @type {UserRatingsCollection}
+ * The singleton instance of the AdminActivitiesCollection.
+ * @type {AdminActivitiesCollection}
  */
-export const UserRatings = new UserRatingsCollection();
+export const AdminActivities = new AdminActivitiesCollection();

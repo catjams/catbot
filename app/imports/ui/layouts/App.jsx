@@ -18,6 +18,7 @@ import ListFeedbacks from '../pages/ListFeedbacks';
 import AddIntent from '../pages/AddIntent';
 import ListIntent from '../pages/ListIntent';
 import EditIntent from '../pages/EditIntent';
+import AdminPage from '../pages/AdminPage';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -38,6 +39,7 @@ class App extends React.Component {
             <AdminProtectedRoute path="/edit" component={EditIntent}/>
             <AdminProtectedRoute path="/analytics" component={AnalyticsAdmin}/>
             <AdminProtectedRoute path="/viewfeedbacks" component={ListFeedbacks}/>
+            <AdminProtectedRoute path="/admin" component={AdminPage}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>
