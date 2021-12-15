@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accounts } from 'meteor/accounts-base';
+
 import { Container, Header, Loader, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -42,11 +42,11 @@ ViewAccountTab.propTypes = {
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Accounts.adminPublicationName);
+  const subscription = Meteor.subscribe('userList');
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const accounts = Accounts.collection.find({}).fetch();
+  const accounts = users.find({}).fetch();
   return {
     accounts,
     ready,

@@ -54,9 +54,9 @@ Meteor.publish(AdminActivities.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Accounts.adminPublicationName, function () {
+Meteor.publish('userList', function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Accounts.collection.find();
+    return Meteor.users.find({}, { fields: { username: 1, emails: 1 } });
   }
   return this.ready();
 });
