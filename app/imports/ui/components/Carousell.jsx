@@ -6,15 +6,15 @@ class Carousell extends React.Component {
   render() {
     const elements = [
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           {/* eslint-disable-next-line react/no-unescaped-entities,max-len */}
-          <Header as="h3" style={{ width: '90%', paddingLeft: '10%' }} textAlign='center'>Welcome to CatJAM's chatbot for the Office of Hawaiian Affairs. This is a short tutorial on how to navigate and utilize the chatbot website and application.</Header>
+          <Header as="h3" style={{ width: '90%', paddingLeft: '10%', paddingTop: '280px' }} textAlign='center'>Welcome to CatJAM's chatbot for the Office of Hawaiian Affairs. This is a short tutorial on how to navigate and utilize the chatbot website and application.</Header>
         </div>
         ,
       },
       {
-        render: () => <div>
-          <Header as="h2"><Icon name='paper plane'/> Navigation Bar</Header>
+        render: () => <div style={{ height: '600px' }}>
+          <Header as="h2" style={{ paddingTop: '200px' }}><Icon name='paper plane'/> Navigation Bar</Header>
           <Container className='line'/>
           <Image src='images/Navbar.png' centered/>
           <Container style={{ marginTop: '15px' }}/>
@@ -24,7 +24,7 @@ class Carousell extends React.Component {
         ,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='home'/> Landing</Header>
           <Container className='line'/>
           <Image src='images/LandingButtons.png' size='huge' centered/>
@@ -35,7 +35,7 @@ class Carousell extends React.Component {
         </div>,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='home'/> Landing</Header>
           <Container className='line'/>
           <Image src='images/LandingSwap.png' size='huge' centered bordered/>
@@ -46,7 +46,7 @@ class Carousell extends React.Component {
         </div>,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='home'/> Landing</Header>
           <Container className='line'/>
           <Image src='images/LandingPhone.png' size='huge' centered bordered/>
@@ -56,7 +56,7 @@ class Carousell extends React.Component {
         </div>,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='home'/> Landing</Header>
           <Container className='line'/>
           <Image src='images/LandingContacts2.png' size='huge' centered bordered/>
@@ -66,7 +66,7 @@ class Carousell extends React.Component {
         </div>,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='chat'/>Chatbot</Header>
           <Container className='line'/>
           <Image src='images/ChatbotImage.png' size='huge' centered bordered/>
@@ -77,7 +77,7 @@ class Carousell extends React.Component {
         </div>,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='chat'/>Chatbot</Header>
           <Container className='line'/>
           <Image src='images/ChatbotTextOptions.png' size='huge' centered bordered/>
@@ -88,7 +88,7 @@ class Carousell extends React.Component {
         </div>,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='chat'/>Chatbot</Header>
           <Container className='line'/>
           <Image src='images/ChatbotResponse2.png' size='huge' centered bordered/>
@@ -99,7 +99,7 @@ class Carousell extends React.Component {
         </div>,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='wpforms'/> Send Feedback</Header>
           <Container className='line'/>
           <Image src='images/feedback.png' size='huge' centered bordered/>
@@ -109,7 +109,7 @@ class Carousell extends React.Component {
         </div>,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='wpforms'/> Send Feedback</Header>
           <Container className='line'/>
           <Image src='images/FeedbackInfo.png' size='huge' centered bordered/>
@@ -119,7 +119,7 @@ class Carousell extends React.Component {
         </div>,
       },
       {
-        render: () => <div>
+        render: () => <div style={{ height: '600px' }}>
           <Header as="h2"><Icon name='wpforms'/> Send Feedback</Header>
           <Container className='line'/>
           <Image src='images/feedbacksubmit.png' size='huge' centered bordered/>
