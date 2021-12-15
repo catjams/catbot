@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Label, Icon, Header, Image, Grid, Button } from 'semantic-ui-react';
-import Slider from 'react-slick';
 import { NavLink } from 'react-router-dom';
 import UserRating from '../components/UserRating';
 
@@ -11,28 +10,8 @@ class Landing extends React.Component {
   render() {
     const gridStyle = { height: '600px' };
     const { status } = this.state;
-    const slickSettings = {
-      autoplay: true,
-      dots: false,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
     return (
       <div id='landing-page'>
-        <Container>
-          <Slider {...slickSettings} className="slide">
-            <Container text className="active">
-              <Image src='https://epic7x.com/wp-content/uploads/2020/09/Landy-1.png'/>
-            </Container>
-            <Container text className="active">
-              <Image src='https://epic7x.com/wp-content/uploads/2020/09/Landy-1.png'/>
-            </Container>
-            <Container text className="active">
-              <Image src='https://epic7x.com/wp-content/uploads/2020/09/Landy-1.png'/>
-            </Container>
-          </Slider>
-        </Container>
         <div className='landingTop'>
           <Grid container columns={2} centered style={gridStyle}>
             <Grid.Row verticalAlign="middle">
