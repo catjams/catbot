@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader, Input, Pagination } from 'semantic-ui-react';
+import { Grid, Table, Header, Loader, Input, Pagination } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { UserFeedbacks } from '../../api/userFeedback/UserFeedback';
@@ -31,32 +31,40 @@ class ListFeedback extends React.Component {
     const itemPerPage = 10;
     const totalPage = Math.ceil(this.props.feedbacks.filter(this.filterResponse, value).length / itemPerPage);
     return (
-      <Container id='view-feedback-page'>
-        <Header as="h2" textAlign="center">List User Feedback</Header>
-        <Input focus
-          icon='search'
-          onChange={this.handleInputChange}
-          value={value}
-          placeholder='Search...'
-        />
-        <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Contact Details</Table.HeaderCell>
-              <Table.HeaderCell>Summary</Table.HeaderCell>
-              <Table.HeaderCell>Feedback Type</Table.HeaderCell>
-              <Table.HeaderCell>Created Date</Table.HeaderCell>
-              <Table.HeaderCell>Info</Table.HeaderCell>
-              <Table.HeaderCell>Remove</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {/* eslint-disable-next-line max-len */}
-            {this.props.feedbacks.filter(this.filterResponse, value).slice((activePage - 1) * itemPerPage, (activePage - 1) * itemPerPage + itemPerPage).map((feedback) => <Feedback key={feedback._id} feedback={feedback} UserFeedbacks={UserFeedbacks} />)}
-          </Table.Body>
-        </Table>
-        <Pagination activePage={activePage} totalPages={totalPage} onPageChange={this.handlePaginationChange}/>
-      </Container>
+      <Grid container={true} id='view-feedback-page'>
+        <Grid.Row>
+          <Header as="h2" textAlign="center">List User Feedback</Header>
+        </Grid.Row>
+        <Grid.Row>
+          <Input focus
+            icon='search'
+            onChange={this.handleInputChange}
+            value={value}
+            placeholder='Search...'
+          />
+        </Grid.Row>
+        <Grid.Row>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Contact Details</Table.HeaderCell>
+                <Table.HeaderCell>Summary</Table.HeaderCell>
+                <Table.HeaderCell>Feedback Type</Table.HeaderCell>
+                <Table.HeaderCell>Created Date</Table.HeaderCell>
+                <Table.HeaderCell>Info</Table.HeaderCell>
+                <Table.HeaderCell>Remove</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {/* eslint-disable-next-line max-len */}
+              {this.props.feedbacks.filter(this.filterResponse, value).slice((activePage - 1) * itemPerPage, (activePage - 1) * itemPerPage + itemPerPage).map((feedback) => <Feedback key={feedback._id} feedback={feedback} UserFeedbacks={UserFeedbacks} />)}
+            </Table.Body>
+          </Table>
+        </Grid.Row>
+        <Grid.Row centered>
+          <Pagination activePage={activePage} totalPages={totalPage} onPageChange={this.handlePaginationChange}/>
+        </Grid.Row>
+      </Grid>
     );
   }
 }
