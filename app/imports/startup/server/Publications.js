@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Accounts } from 'meteor/accounts-base';
 import { UserFeedbacks } from '../../api/userFeedback/UserFeedback';
 import { Intents } from '../../api/Intents/Intents';
 import { UserRatings } from '../../api/userStuffs/UserRatings';
