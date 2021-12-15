@@ -56,7 +56,7 @@ Meteor.publish(AdminActivities.adminPublicationName, function () {
 
 Meteor.publish('userList', function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Meteor.users.find({}, { fields: { username: 1, emails: 1 } });
+    return Meteor.users.find({}, { fields: { username: 1, emails: 1, createdAt: 1 } });
   }
   return this.ready();
 });

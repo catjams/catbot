@@ -9,6 +9,7 @@ import Account from '../Account';
 class ViewAccountTab extends React.Component {
 
   render() {
+    console.log(this.props.accounts);
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
@@ -21,7 +22,7 @@ class ViewAccountTab extends React.Component {
             <Table.Row>
               <Table.HeaderCell>Username</Table.HeaderCell>
               <Table.HeaderCell>Email</Table.HeaderCell>
-              <Table.HeaderCell>Password</Table.HeaderCell>
+              <Table.HeaderCell>Created At</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -46,7 +47,7 @@ export default withTracker(() => {
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Stuff documents
-  const accounts = users.find({}).fetch();
+  const accounts = Meteor.users.find({}).fetch();
   return {
     accounts,
     ready,
