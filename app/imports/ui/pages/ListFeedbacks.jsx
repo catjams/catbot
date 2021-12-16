@@ -78,7 +78,7 @@ ListFeedback.propTypes = {
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to UserFeedBack documents.
-  const subscription = Meteor.subscribe(UserFeedbacks.adminPublicationName);
+  const subscription = Meteor.subscribe(UserFeedbacks.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the UserFeedBack documents
