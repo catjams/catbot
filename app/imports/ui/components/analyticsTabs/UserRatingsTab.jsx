@@ -32,12 +32,12 @@ class UserRatingsTab extends React.Component {
 
   filterRating(rating) {
     if (this === 2) {
-      return rating.experience === 'helpful';
+      return rating.experience === 'Helpful';
     }
     if (this === 3) {
-      return rating.experience === 'not helpful';
+      return rating.experience === 'Not helpful';
     }
-    return rating.experience === 'helpful' || rating.experience === 'not helpful';
+    return rating.experience === 'Helpful' || rating.experience === 'Not helpful';
   }
 
   // Render the page once subscriptions have been received.

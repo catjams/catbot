@@ -19,7 +19,7 @@ class ListIntent extends React.Component {
   handleInputChange = (e, { value }) => this.setState({ value }, this.setState({ activePage: 1 }))
 
   filterResponse(str) {
-    return str.contactDetails.indexOf(this) > -1 || str.summary.indexOf(this) > -1 || str.feedbackType.indexOf(this) > -1 || str.createdAt.toLocaleDateString('en-US').indexOf(this) > -1;
+    return str.name.indexOf(this) > -1 || str.phrase.indexOf(this) > -1 || str.response.indexOf(this) > -1;
   }
 
   handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
