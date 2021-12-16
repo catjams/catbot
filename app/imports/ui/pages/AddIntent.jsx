@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Intents } from '../../api/Intents/Intents';
+import { AdminActivities } from '../../api/adminActivities/AdminActivities';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -29,6 +30,13 @@ class AddIntent extends React.Component {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Item added successfully', 'success');
+          AdminActivities.collection.insert({
+            accountName: Meteor.user().username,
+            action: 'added',
+            type: 'intent',
+            id: 'no id',
+            createdAt: new Date(),
+          });
           formRef.reset();
         }
       });
@@ -46,7 +54,7 @@ class AddIntent extends React.Component {
               <TextField id='name' name='name'/>
               <TextField id='phrase' name='phrase'/>
               <TextField id='response' name='response'/>
-              <SubmitField id='Submit' value='#submit'/>
+              <SubmitField id='Submit' value='Submit'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>

@@ -36,7 +36,7 @@ class App extends React.Component {
             <Route path="/sendfeedback" component={SendFeedback}/>
             <AdminProtectedRoute path="/addintent" component={AddIntent}/>
             <AdminProtectedRoute path="/listintent" component={ListIntent}/>
-            <AdminProtectedRoute path="/edit" component={EditIntent}/>
+            <AdminProtectedRoute path="/edit/:_id" component={EditIntent}/>
             <AdminProtectedRoute path="/analytics" component={AnalyticsAdmin}/>
             <AdminProtectedRoute path="/viewfeedbacks" component={ListFeedbacks}/>
             <AdminProtectedRoute path="/admin" component={AdminPage}/>

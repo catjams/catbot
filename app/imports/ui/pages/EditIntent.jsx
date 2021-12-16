@@ -7,6 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Intents } from '../../api/Intents/Intents';
+import { AdminActivities } from '../../api/adminActivities/AdminActivities';
 
 const bridge = new SimpleSchema2Bridge(Intents.schema);
 
@@ -19,6 +20,13 @@ class EditIntent extends React.Component {
     Intents.collection.update(_id, { $set: { name, phrase, response } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
+    AdminActivities.collection.insert({
+      accountName: Meteor.user().username,
+      action: 'edited',
+      type: 'intent',
+      id: _id,
+      createdAt: new Date(),
+    });
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.

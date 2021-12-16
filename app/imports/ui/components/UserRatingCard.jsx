@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
@@ -7,7 +8,7 @@ import { AdminActivities } from '../../api/adminActivities/AdminActivities';
 class UserRatingCard extends React.Component {
   removeRating(docID) {
     AdminActivities.collection.insert({
-      accountName: 'admin',
+      accountName: Meteor.user().username,
       action: 'removed',
       type: 'user rating card',
       id: docID,
