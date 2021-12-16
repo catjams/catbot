@@ -51,11 +51,11 @@ class UserRatingsTab extends React.Component {
       <Grid container={true}>
         <Grid.Row>
           <Statistic color='green'>
-            <Statistic.Value><Icon name='thumbs up'/>{displayNum.helpful}</Statistic.Value>
+            <Statistic.Value><Icon name='thumbs up'/>{displayNum.Helpful}</Statistic.Value>
             <Statistic.Label>Helpful</Statistic.Label>
           </Statistic>
           <Statistic color='red'>
-            <Statistic.Value><Icon name='thumbs down'/>{displayNum['not helpful']}</Statistic.Value>
+            <Statistic.Value><Icon name='thumbs down'/>{displayNum['Not helpful']}</Statistic.Value>
             <Statistic.Label>Not Helpful</Statistic.Label>
           </Statistic>
           <Grid.Column>
